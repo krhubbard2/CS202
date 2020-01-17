@@ -9,12 +9,29 @@ using std::cout;
 using std::endl;
 #include <string>
 using std::string;
+#include <sstream>
+using std::istringstream;
 
 //Conversion using C++ STL
 double cpp_ftoc(const char* str)
 {
+  istringstream iss(str);
+  double fahrenheit;
+  iss >> fahrenheit;
 
-  return 1;
+  double celsius;
+
+  if (!iss)
+  {
+    cout << "Error. Invalid entry." << endl;
+  }
+  else
+  {
+    double c = (fahrenheit - 32)*5/9;
+    celsius = c;
+  }
+
+  return celsius;
 }
 
 //Conversion using C Function strtod
@@ -32,6 +49,7 @@ int main(int argc, const char** argv)
   if (argc >= 2 && argv[1] == string("--ftoc"))
   {
     cout << "ftoc\n";
+    cout << cpp_ftoc(argv[2]) << " celsius" << endl;
   }
   else if (argc >= 2 && argv[1] == string("--ctof"))
   {
