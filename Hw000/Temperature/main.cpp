@@ -48,14 +48,33 @@ int main(int argc, const char** argv)
 {
   if (argc >= 2 && argv[1] == string("--ftoc"))
   {
-    cout << "ftoc\n";
+    if (cpp_ftoc(argv[2]) < -273.15)
+    {
+      cout << "Error. That temperature is below absolute zero.\n";
+    }
+    else if (cpp_ftoc(argv[2]) >= -273.15)
+    {
     cout << cpp_ftoc(argv[2]) << " celsius" << endl;
+    }
+    else
+    {
+      cout << "Improper entry. Please enter a valid temperature." << endl;
+    }
   }
   else if (argc >= 2 && argv[1] == string("--ctof"))
   {
-    cout << "ctof\n";
+    if (c_ctof(argv[2]) < -459.67)
+    {
+      cout << "Error. That temperature is below absolute zero.\n";
+    }
+    else if (c_ctof(argv[2]) >= -459.67)
+    {
     cout << c_ctof(argv[2]) << " fahrenheit" << endl;
-
+    }
+    else
+    {
+      cout << "Improper entry. Please enter a valid temperature." << endl;
+    }
   }
 
 
