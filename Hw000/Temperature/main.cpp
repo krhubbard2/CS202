@@ -36,7 +36,7 @@ double c_ctof(const char* str)
 //Ensures string entered are digits only
 bool digits(const string s)
 {
-  return s.find_first_not_of(".012345679") == string::npos;
+  return s.find_first_not_of("0123456789.") == string::npos;
 }
 
 int main(int argc, const char** argv)
