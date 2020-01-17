@@ -36,7 +36,7 @@ double c_ctof(const char* str)
 //Ensures string entered are digits only
 bool digits(const string s)
 {
-  return s.find_first_not_of("012345679-") == string::npos;
+  return s.find_first_not_of("012345679") == string::npos;
 }
 
 int main(int argc, const char** argv)
@@ -50,12 +50,30 @@ int main(int argc, const char** argv)
     {
       cout << "Error. That temperature is below absolute zero.\n";
     }
-    //Verifies user entry only contains digits
+
+    //Checks if negative number
+    else if (argv[2][0] == '-')
+    {
+      //Erases negative sign
+      string neg = argv[2];
+      neg.erase (neg.begin() + 0);
+      //Ensures number is only digits
+      if (digits(neg))
+      {
+        cout << cpp_ftoc(argv[2]) << " celsius" << endl;
+      }
+      //Improper entry
+      else
+      {
+        cout << "Improper entry. Please enter a valid temperature." << endl;
+      }
+    }
+    //Entry only contains digits
     else if (digits(argv[2]))
     {
     cout << cpp_ftoc(argv[2]) << " celsius" << endl;
     }
-    //Error for improper entry.
+    //Improper entry
     else
     {
       cout << "Improper entry. Please enter a valid temperature." << endl;
@@ -70,7 +88,24 @@ int main(int argc, const char** argv)
     {
       cout << "Error. That temperature is below absolute zero.\n";
     }
-    //Verifies user entry only contains digits
+    //Checks if negative
+    else if (argv[2][0] == '-')
+    {
+      //Delete negative
+      string neg = argv[2];
+      neg.erase (neg.begin() + 0);
+      //Checks now that negative is gone that there is only digits
+      if (digits(neg))
+      {
+        cout << c_ctof(argv[2]) << " fahrenheit" << endl;
+      }
+      //Impropery Entry
+      else
+      {
+        cout << "Improper entry. Please enter a valid temperature." << endl;
+      }
+    }
+    //Only digits entered
     else if (digits(argv[2]))
     {
     cout << c_ctof(argv[2]) << " fahrenheit" << endl;
