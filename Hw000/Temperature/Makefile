@@ -1,4 +1,4 @@
-TARGET = Temp
+TARGET = temperature
 SOURCES = $(wildcard *.cpp)
 HEADERS = $(wildcard *.h*)
 OBJECTS = $(SOURCES:%.cpp=%.o)

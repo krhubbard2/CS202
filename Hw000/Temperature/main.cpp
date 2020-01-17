@@ -17,19 +17,9 @@ double cpp_ftoc(const char* str)
 {
   istringstream iss(str);
   double fahrenheit;
-  iss >> fahrenheit;
+  iss >> fahrenheit;;
 
-  double celsius;
-
-  if (!iss)
-  {
-    cout << "Error. Invalid entry." << endl;
-  }
-  else
-  {
-    double c = (fahrenheit - 32)*5/9;
-    celsius = c;
-  }
+  double celsius = (fahrenheit - 32)*5/9;
 
   return celsius;
 }
@@ -43,34 +33,49 @@ double c_ctof(const char* str)
   return fahrenheit;
 }
 
+//Ensures string entered are digits only
+bool digits(const string s)
+{
+  return s.find_first_not_of("012345679-") == string::npos;
+}
 
 int main(int argc, const char** argv)
 {
+
+  //Fahrenheit to celius
   if (argc >= 2 && argv[1] == string("--ftoc"))
   {
+    //Checks if temp entered is below absolute zero
     if (cpp_ftoc(argv[2]) < -273.15)
     {
       cout << "Error. That temperature is below absolute zero.\n";
     }
-    else if (cpp_ftoc(argv[2]) >= -273.15)
+    //Verifies user entry only contains digits
+    else if (digits(argv[2]))
     {
     cout << cpp_ftoc(argv[2]) << " celsius" << endl;
     }
+    //Error for improper entry.
     else
     {
       cout << "Improper entry. Please enter a valid temperature." << endl;
     }
   }
+
+  //Celcius to fahrenheit
   else if (argc >= 2 && argv[1] == string("--ctof"))
   {
+    //Checks if temp entered is below absolute zero
     if (c_ctof(argv[2]) < -459.67)
     {
       cout << "Error. That temperature is below absolute zero.\n";
     }
-    else if (c_ctof(argv[2]) >= -459.67)
+    //Verifies user entry only contains digits
+    else if (digits(argv[2]))
     {
     cout << c_ctof(argv[2]) << " fahrenheit" << endl;
     }
+    //Error for improper entry.
     else
     {
       cout << "Improper entry. Please enter a valid temperature." << endl;
