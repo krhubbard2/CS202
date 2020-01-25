@@ -11,9 +11,8 @@ class StopWatch
 {
 public:
 
-
-
-private:
+void starttimer();
+void stoptimer();
 
 };
 

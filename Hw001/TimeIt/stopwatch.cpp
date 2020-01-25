@@ -4,3 +4,8 @@
 // HW001 -- Time It I
 
 #include "stopwatch.hpp"
+
+void StopWatch::starttimer()
+{
+  
+}
