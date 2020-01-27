@@ -164,6 +164,7 @@ int main()
 
   //Searching map
   cout << "Searching for a random string in the map." << endl;
+  timer.starttimer();
   auto key_count = m.count(random);
   if (key_count != 0)
   {
@@ -173,6 +174,8 @@ int main()
   {
     cout << "String not found." << endl;
   }
+  timer.stoptimer();
+  timer.elapsed();
 
   return 0;
 }
