@@ -91,11 +91,11 @@ int main()
 
   //Making a vector of 5 Project Gutenberg books
 
-  cout << "******************************************************"
-       << "************* VECTORS ********************************"
-       << "******************************************************";
+  cout << "******************************************************\n"
+       << "************* VECTORS ********************************\n"
+       << "******************************************************\n";
 
-
+  //Filling vector
   vector<string> books;
   cout << "Adding Dracula, Moby Dick, Pride and Prejudice,"
        << "The Scarlet Letter, and War and Peace to a vector."
@@ -123,6 +123,7 @@ int main()
   timer.elapsed();
 
   //std::find a random string in the vector
+  cout << "Searching for a random string in the vector." << endl;
   string random = "whole neighborhood in powder smoke.";
   //timer.starttimer();
   if (std::find(books.begin(), books.end(), random) != books.end())
@@ -137,12 +138,12 @@ int main()
   timer.elapsed();
 
 
-  cout << "******************************************************"
-       << "************* MAPS ***********************************"
-       << "******************************************************";
-
-
   //Maps
+  cout << "******************************************************\n"
+       << "************* MAPS ***********************************\n"
+       << "******************************************************\n";
+
+  //Filling map
   cout << "Adding Dracula, Moby Dick, Pride and Prejudice,"
        << "The Scarlet Letter, and War and Peace to a map."
        << endl;
@@ -160,5 +161,18 @@ int main()
   cout << "Added War and Peace to Map." << endl;
   timer.stoptimer();
   timer.elapsed();
+
+  //Searching map
+  cout << "Searching for a random string in the map." << endl;
+  auto key_count = m.count(random);
+  if (key_count != 0)
+  {
+    cout << "String found!" << endl;
+  }
+  else
+  {
+    cout << "String not found." << endl;
+  }
+
   return 0;
 }
