@@ -20,10 +20,12 @@ int main()
   StopWatch timer;
 
   //Generate random number
+  cout << "Generating random number to compare to dataset." << endl;
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(1, size);
   vector<int> random = {dis(gen)};
+  cout << "Random number generated is " << dis(gen) << "." << endl;
 
   //Filling dataset
   cout << "Filling dataset of size " << size << "." << endl
