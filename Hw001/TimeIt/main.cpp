@@ -59,6 +59,12 @@ int main()
   timer.stoptimer();
   timer.elapsed();
 
+  //Shuffle
+  cout << "Shuffling dataset." << endl;
+  timer.starttimer();
+  std::shuffle(dataset.begin(), dataset.end(), gen);
+  timer.stoptimer();
+  timer.elapsed();
 
 
 
