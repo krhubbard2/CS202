@@ -124,7 +124,7 @@ int main()
 
   //std::find a random string in the vector
   cout << "Searching for a random string in the vector." << endl;
-  string random = "whole neighborhood in powder smoke.";
+  string random = "This string is not in the books.";
   //timer.starttimer();
   if (std::find(books.begin(), books.end(), random) != books.end())
   {
