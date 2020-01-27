@@ -6,22 +6,7 @@
 #include "stopwatch.hpp"
 #include <vector>
 using std::vector;
-
-
-bool sequentialSearch(int random, const vector<int>& values)
-{
-  for (size_t i = 0; i < values.size(); i++)
-  {
-    if (values[i] == random)
-    {
-      cout << "Match found." << endl;
-      return true;
-    }
-
-  }
-  return false;
-}
-
+#include <algorithm>
 
 int main()
 {
@@ -38,31 +23,28 @@ int main()
   std::random_device rd;
   std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(1, size);
-  dis(gen);
+  vector<int> random = {dis(gen)};
 
   //Filling dataset
   cout << "Filling dataset of size " << size << "." << endl
        << "Starting timer." << endl;
   timer.starttimer();
-  vector<int> vec;
+  vector<int> dataset;
   for (int i = 0; i < size; i++)
   {
-    vec.push_back(i);
+    dataset.push_back(i);
   }
   timer.stoptimer();
   timer.elapsed();
 
-
-  int x = dis(gen);
-  cout << "Random number we're searching for is: " << x << endl;
-  cout << "In a vector of size: " << vec.size() << endl;
+  //Sorting dataset
+  cout << "Sorting the dataset" << endl;
   timer.starttimer();
-  sequentialSearch(x, vec);
-
+  std::sort(dataset.begin(), dataset.end());
   timer.stoptimer();
   timer.elapsed();
 
-
+  
 
 
   return 0;
