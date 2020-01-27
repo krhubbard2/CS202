@@ -44,7 +44,16 @@ int main()
   timer.stoptimer();
   timer.elapsed();
 
-  
+  //Standard search
+  cout << "Using standard search to search the dataset." << endl;
+  timer.starttimer();
+  std::search(dataset.begin(), dataset.end(), random.begin(),
+  random.end());
+  timer.stoptimer();
+  timer.elapsed();
+
+
+
 
 
   return 0;
