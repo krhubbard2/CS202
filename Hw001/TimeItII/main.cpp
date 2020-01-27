@@ -15,6 +15,7 @@ using std::ifstream;
 #include <vector>
 using std::vector;
 #include "stopwatch.hpp"
+#include <algorithm>
 
 void vecadd(vector<string>& vec, string book)
 {
@@ -69,6 +70,28 @@ int main()
   cout << "Added The Scarlet Letter to Vector." << endl;
   vecadd(books, "War and Peace.txt");
   cout << "Added War and Peace to Vector." << endl;
+  timer.stoptimer();
+  timer.elapsed();
+
+  //Sort
+  cout << "Sorting vector of books." << endl;
+  timer.starttimer();
+  std::sort (books.begin(), books.end());
+  cout << "Vector is sorted." << endl;
+  timer.stoptimer();
+  timer.elapsed();
+
+  //std::find a random string in the vector
+  string random = "whole neighborhood in powder smoke.";
+  //timer.starttimer();
+  if (std::find(books.begin(), books.end(), random) != books.end())
+  {
+    cout << "String found!" << endl;
+  }
+  else
+  {
+    cout << "String not found." << endl;
+  }
   timer.stoptimer();
   timer.elapsed();
 
