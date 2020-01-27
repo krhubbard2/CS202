@@ -52,6 +52,12 @@ int main()
   timer.stoptimer();
   timer.elapsed();
 
+  //Binary search
+  cout << "Using binary search to search the dataset." << endl;
+  timer.starttimer();
+  std::binary_search(dataset.begin(), dataset.end(), random[0]);
+  timer.stoptimer();
+  timer.elapsed();
 
 
 
