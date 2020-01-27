@@ -16,6 +16,8 @@ using std::ifstream;
 using std::vector;
 #include "stopwatch.hpp"
 #include <algorithm>
+#include <map>
+using std::map;
 
 void vecadd(vector<string>& vec, string book)
 {
@@ -50,11 +52,50 @@ void vecadd(vector<string>& vec, string book)
     }
   }
 
+void mapadd(map<string, int>& map1, string book)
+{
+  ifstream fin(book);
+  int i = 1;
+  //Can it read file?
+  if (!fin)
+  {
+    cout << "Can't open file." << endl;
+  }
+  else
+  {
+    bool read = true;
+    while(read)
+    {
+      string line;
+      getline(fin, line);
+      map1.insert({ line, i });
+      i++;
+      //eof checking
+      if (!fin)
+        {
+          if (fin.eof())
+          {
+            read = false;
+          }
+          else
+          {
+            read = true;
+          }
+        }
+      }
+    }
+}
 int main()
 {
   StopWatch timer;
 
   //Making a vector of 5 Project Gutenberg books
+
+  cout << "******************************************************"
+       << "************* VECTORS ********************************"
+       << "******************************************************";
+
+
   vector<string> books;
   cout << "Adding Dracula, Moby Dick, Pride and Prejudice,"
        << "The Scarlet Letter, and War and Peace to a vector."
@@ -95,5 +136,29 @@ int main()
   timer.stoptimer();
   timer.elapsed();
 
+
+  cout << "******************************************************"
+       << "************* MAPS ***********************************"
+       << "******************************************************";
+
+
+  //Maps
+  cout << "Adding Dracula, Moby Dick, Pride and Prejudice,"
+       << "The Scarlet Letter, and War and Peace to a map."
+       << endl;
+  map<string, int> m;
+  timer.starttimer();
+  mapadd(m, "Dracula.txt");
+  cout << "Added Dracula to Map." << endl;
+  mapadd(m, "Moby Dick.txt");
+  cout << "Added Moby Dick to Map." << endl;
+  mapadd(m, "Pride and Prejudice.txt");
+  cout << "Added Pride and Prejudice to Map." << endl;
+  mapadd(m, "The Scarlet Letter.txt");
+  cout << "Added The Scarlet Letter to Map." << endl;
+  mapadd(m, "War and Peace.txt");
+  cout << "Added War and Peace to Map." << endl;
+  timer.stoptimer();
+  timer.elapsed();
   return 0;
 }
