@@ -24,3 +24,9 @@ void popStack(list<shared_ptr<Value>>& list)
 {
   list.pop_back();
 }
+
+void insert(list<shared_ptr<Value>>& list, const Value& dat,
+   list<shared_ptr<Value>>::iterator n)
+{
+     list.insert(n, make_shared<Value>(dat));
+}
