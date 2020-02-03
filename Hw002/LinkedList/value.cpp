@@ -42,3 +42,12 @@ bool find(const list<shared_ptr<Value>>& list, const Value& dat)
     return false;
   }
 }
+
+void printList(list<shared_ptr<Value>>& list)
+{
+  for (auto i : list)
+  {
+    cout << i->data << " ";
+  }
+  cout << endl;
+}
