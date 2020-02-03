@@ -30,9 +30,14 @@ void to_lower(char* s)
 int main()
 {
   cout << "C Style String Uppercase to Lowercase Converter" << endl;
-  char *s = "Hello, World!";
 
-  cout << "Original: " << *s << endl;
+  //To convert any c style string to lowercase, change the string
+  //below to desired text. Any length will work.
+  char *s = "ThIs iS a C sTylE STRING!";
+
+  cout << "Original: " << s << endl;
+
+  cout << "Lowercase: ";
   to_lower(s);
 
 
