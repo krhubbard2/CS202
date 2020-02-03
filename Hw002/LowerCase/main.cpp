@@ -9,6 +9,8 @@ using std::endl;
 #include <string>
 using std::string;
 
+//If char of the string is uppercase change it to lower case (+32 on ASCII)
+//Otherwise ignore and print
 void to_lower(char* s)
 {
   while (s[0] != 0)
