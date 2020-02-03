@@ -14,3 +14,8 @@ void popQueue(list<shared_ptr<Value>>& list)
 {
   list.pop_front();
 }
+
+void pushStack(list<shared_ptr<Value>>& list, const Value& dat)
+{
+  pushQueue(list, dat);
+}
