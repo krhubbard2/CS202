@@ -15,7 +15,7 @@ using std::make_shared;
 using std::shared_ptr;
 #include <algorithm>
 using std::find;
-#include <catch>
+#include <catch.hpp>
 
 struct Value
 {
@@ -34,7 +34,7 @@ void popStack(list<shared_ptr<Value>>& list);
 
 //Insert
 void insert(list<shared_ptr<Value>>& list, const Value& dat,
-   list<shared_ptr<Value>>::iterator n);
+  std::list<shared_ptr<Value>>::iterator n);
 
 //Find
 bool find(const list<shared_ptr<Value>>& list, const Value& dat);

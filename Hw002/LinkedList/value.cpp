@@ -26,7 +26,7 @@ void popStack(list<shared_ptr<Value>>& list)
 }
 
 void insert(list<shared_ptr<Value>>& list, const Value& dat,
-   list<shared_ptr<Value>>::iterator n)
+  std::list<shared_ptr<Value>>::iterator n)
 {
      list.insert(n, make_shared<Value>(dat));
 }
