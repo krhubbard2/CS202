@@ -27,4 +27,13 @@ TEST_CASE("TESTING VALUE.HPP", "[data]")
     popQueue(list1);
     REQUIRE(list1.front()->data != Test[0].data);
   }
+
+  SECTION("STACK")
+  {
+    pushStack(list1, val6);
+    REQUIRE(list1.back()->data == val6.data);
+
+    popStack(list1);
+    REQUIRE(list1.front()->data != Test[0].data);
+  }
 }
