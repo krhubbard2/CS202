@@ -36,4 +36,12 @@ TEST_CASE("TESTING VALUE.HPP", "[data]")
     popStack(list1);
     REQUIRE(list1.front()->data != Test[0].data);
   }
+
+  SECTION("INSERT AND FIND")
+  {
+    insert(list1, val7, list1.begin());
+    REQUIRE(list1.front()->data == val7.data);
+
+    REQUIRE(find(list1, val6) != true);
+  }
 }
