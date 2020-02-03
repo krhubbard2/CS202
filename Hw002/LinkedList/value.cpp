@@ -30,3 +30,15 @@ void insert(list<shared_ptr<Value>>& list, const Value& dat,
 {
      list.insert(n, make_shared<Value>(dat));
 }
+
+bool find(const list<shared_ptr<Value>>& list, const Value& dat)
+{
+  for (auto i : list)
+  {
+    if (i->data == dat.data)
+    {
+      return true;
+    }
+    return false;
+  }
+}
