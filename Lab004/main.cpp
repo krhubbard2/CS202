@@ -78,27 +78,17 @@ int main()
 
     }
 
-    cout << "Please enter which line you'd like to copy: ";
-    getline(cin, copy);
-    istringstream iss2(copy);
-    int l;
-    iss2 >> l;
-    bool loop2 = false;
-    if (!iss2)
+    cout << "Please enter a string you'd like to append: ";
+    string n;
+    getline(cin, n);
+
+    ofstream fout("text.txt", std::ios::app);
+
+    for (int i = 0; i < c; i++)
     {
-      loop2 = true;
+      fout << n << endl;
     }
-    while (loop2)
-    {
-      cout << "Error. Please enter an integer: ";
-      getline(cin, copy);
-      istringstream iss3(copy);
-      iss3 >> l;
-      if (iss3)
-      {
-        loop = false;
-      }
-    }
+
 
  return 0;
 }
