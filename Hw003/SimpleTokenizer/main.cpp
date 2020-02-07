@@ -7,7 +7,14 @@
 
 int main()
 {
+  string input;
+  cout << "Please enter some text. When you are done type \"END\": ";
 
+  while (getline(cin, input) && input != "end" && input != "End"
+    && input != "END")
+  {
+
+  }
 
 
 
