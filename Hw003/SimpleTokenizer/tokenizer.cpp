@@ -7,7 +7,13 @@
 
 bool LineToTokens(const std::string& line, std::vector<std::string>& tokens)
 {
-  tokens.push_back(line);
+  istringstream iss(line);
+  string word;
+  while (iss >> word)
+  {
+    tokens.push_back(word);
+  }
+
 }
 
 // bool ReadLine(std::istream& is, std::vector<std::string>& tokens,
