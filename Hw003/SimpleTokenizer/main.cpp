@@ -24,6 +24,11 @@ int main()
   {
     cout << i << " ";
   }
+  cout << endl;
+
+  string test = " this is a test  i need to   test.";
+
+  int colm = 0;
 
 
 

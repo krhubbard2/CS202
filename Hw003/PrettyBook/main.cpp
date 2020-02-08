@@ -26,11 +26,14 @@ int main()
   }
   else
   {
-    string line;
+    string line = "";
+    string para = "";
+    string word = "";
     while (true)
     {
       getline(ifile, line);
 
+      //EOF check
       if(!ifile)
       {
         if (ifile.eof())
@@ -42,23 +45,13 @@ int main()
           return true;
         }
       }
+
       istringstream iss(line);
-      string para;
-      string word;
       while (iss >> word)
       {
         para.append(word);
       }
-      if (line == "")
-      {
-        paragraphs.push_back(para);
-        para.clear();
-      }
     }
-  }
-  for (auto x : paragraphs)
-  {
-    cout << x << endl;
   }
 
   return 0;
