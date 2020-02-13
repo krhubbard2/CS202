@@ -11,9 +11,18 @@ void foo()
   cout << "This is the foo() in main\n";
 }
 
+namespace
+{
+  int x = 100;
+}
+
 int main()
 {
   cs202::display obj;
   obj.foo();
   foo();
+
+  int x = 200;
+
+  cout << x << std::endl;
 }

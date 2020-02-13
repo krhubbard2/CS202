@@ -9,3 +9,8 @@ void cs202::display::foo()
 {
   cout << "cs202::display::foo()\n";
 }
+
+namespace
+{
+  int x = 100;
+}
