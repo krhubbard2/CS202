@@ -10,7 +10,6 @@ int main(int argc, const char** argv)
   vector<string> tokens;
   vector<std::pair<int, int>> linecols;
 
-  bool ontinue = true;
 
   //Help command
   if (argc >= 2 && argv[1] == string("--help"))
