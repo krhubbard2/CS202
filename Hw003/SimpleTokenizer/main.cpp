@@ -32,7 +32,12 @@ int main(int argc, const char** argv)
          << "\"--help\"" << endl;
   }
 
+string line;
+getline(cin, line);
 
+ReadLine(line, tokens, linecols, 1);
+
+PrintTokens(tokens, linecols);
 
 
 

@@ -27,6 +27,7 @@ void ReadLine(const std::string& line, std::vector<std::string>& tokens,
     {
       iss >> str;
       tokens.push_back(str);
+      linecols.push_back(std::make_pair(row, line.find(str) + 1));
     }
   }
   else
@@ -36,8 +37,14 @@ void ReadLine(const std::string& line, std::vector<std::string>& tokens,
   }
 }
 
-void PrintTokens(std::ostream& os, const std::vector<std::string>& tokens,
+void PrintTokens(const std::vector<std::string>& tokens,
           const std::vector<std::pair<int, int>>& linecols)
 {
-  cout << "Line ";
+  int r = 0;
+ for (auto i : tokens)
+ {
+   cout << "Row " << linecols[r].first << ", Column " << linecols[r].second
+        << ": \"" << i << "\"" << endl;
+   r++;
+ }
 }
