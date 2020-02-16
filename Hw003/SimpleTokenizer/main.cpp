@@ -21,7 +21,17 @@ int main(int argc, const char** argv)
          << "tokenize input text." << endl;
   }
 
+  else if (argc >= 2 && argv[1] == string ("--tokenize"))
+  {
 
+  }
+
+  //Incorrect argv input
+  else if (argc >= 2)
+  {
+    cout << "Command not understood. For assistance please type"
+         << "\"--help\"" << endl;
+  }
 
 
 
