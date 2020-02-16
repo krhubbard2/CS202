@@ -32,10 +32,22 @@ int main(int argc, const char** argv)
          << "\"--help\"" << endl;
   }
 
+//User Input
 string line;
-getline(cin, line);
+int row = 0;
+bool loop = true;
+while (loop)
+{
+  getline(cin, line);
+  if (line == "END")
+  {
+    loop = false;
+  }
+  row++;
+  ReadLine(line, tokens, linecols, row);
 
-ReadLine(line, tokens, linecols, 1);
+
+}
 
 PrintTokens(tokens, linecols);
 
