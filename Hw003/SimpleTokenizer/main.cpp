@@ -7,6 +7,7 @@
 
 int main(int argc, const char** argv)
 {
+  //Variables needed for both user input or file input.
   vector<string> tokens;
   vector<std::pair<int, int>> linecols;
   string line;
@@ -21,13 +22,16 @@ int main(int argc, const char** argv)
          << "tokenize input text." << endl;
   }
 
+  //--tokenize command
   else if (argc >= 2 && argv[1] == string ("--tokenize"))
   {
     ifstream file(argv[2]);
+    //Ensure file can be opened. If not reference help to user.
     if (!file)
     {
       cout << "Error. Can't locate or open file. For help type \"--help\"\n";
     }
+    //If file opened--continue
     else
     {
       bool read = true;
@@ -38,6 +42,7 @@ int main(int argc, const char** argv)
         ReadLine(line, tokens, linecols, row);
         if (!file)
         {
+          //If end of file end loops.
           if (file.eof())
           {
             read = false;
@@ -48,6 +53,7 @@ int main(int argc, const char** argv)
           }
         }
       }
+      //Print tokens back to user.
       PrintTokens(tokens, linecols);
     }
   }
@@ -59,7 +65,8 @@ int main(int argc, const char** argv)
            << "\"--help\"" << endl;
     }
 
-    else if (argc <= 2)
+  //If no commands were passed when running program
+  else if (argc <= 2)
     {
     cout << "Enter some text. To exit type \"END\"." << endl;
     //User Input

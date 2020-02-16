@@ -5,17 +5,7 @@
 
 #include "tokenizer.hpp"
 
-// bool LineToTokens(const std::string& line, std::vector<std::string>& tokens)
-// {
-//   istringstream iss(line);
-//   string word;
-//   while (iss >> word)
-//   {
-//     tokens.push_back(word);
-//   }
-//
-// }
-
+//Reads a getline
 void ReadLine(const std::string& line, std::vector<std::string>& tokens,
           std::vector<std::pair<int, int>>& linecols, const int& row)
 {
