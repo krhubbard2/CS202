@@ -5,32 +5,21 @@
 
 #include "tokenizer.hpp"
 
-int main()
+int main(int argc, const char** argv)
 {
   vector<string> tokens;
   vector<std::pair<int, int>> linecols;
 
-  string input;
-  cout << "Please enter some text. When you are done type \"END\": ";
+  bool ontinue = true;
 
-  //Grabs input and adds to vector "tokens"
-  while (getline(cin, input) && input != "end" && input != "End"
-    && input != "END")
+  //Help command
+  if (argc >= 2 && argv[1] == string("--help"))
   {
-    LineToTokens(input, tokens);
+    cout << "To tokenize a .txt file use the command"
+         << " \"--tokenize filenamehere.txt\".\nEnsure the file is in the "
+         << "same directory as the program.\nOtherwise run the program to "
+         << "tokenize input text." << endl;
   }
-
-  for (auto i : tokens)
-  {
-    cout << i << " ";
-  }
-  cout << endl;
-
-  string test = " this is a test  i need to   test.";
-
-  int colm = 0;
-
-
 
 
 

@@ -22,8 +22,8 @@ bool LineToTokens(const std::string& line, std::vector<std::string>& tokens)
 //
 // }
 
-// void PrintTokens(std::ostream& os, const std::vector<std::string>& tokens,
-//           const std::vector<std::pair<int, int>>& linecols)
-// {
-//
-// }
+void PrintTokens(std::ostream& os, const std::vector<std::string>& tokens,
+          const std::vector<std::pair<int, int>>& linecols)
+{
+  cout << "Line ";
+}
