@@ -5,13 +5,14 @@
 
 #include "tokenizer.hpp"
 
-//Reads a getline
+//Reads a getline, converts to tokens reading both row and column
 void ReadLine(const std::string& line, std::vector<std::string>& tokens,
           std::vector<std::pair<int, int>>& linecols, const int& row)
 {
   string str;
   istringstream iss(line);
 
+  //If line is not empty
   if (!line.empty())
   {
     while (!iss.eof())
@@ -21,6 +22,8 @@ void ReadLine(const std::string& line, std::vector<std::string>& tokens,
       linecols.push_back(std::make_pair(row, line.find(str) + 1));
     }
   }
+
+  //If line is empty
   else
   {
     tokens.push_back("Empty Line");

@@ -4,6 +4,7 @@
 // Hw003 -- A Simple Tokenizer
 
 #include "tokenizer.hpp"
+#include "stopwatch.hpp"
 
 int main(int argc, const char** argv)
 {
@@ -12,6 +13,10 @@ int main(int argc, const char** argv)
   vector<std::pair<int, int>> linecols;
   string line;
   int row = 0;
+
+
+  //TIMER
+  StopWatch timer;
 
   //Help command
   if (argc >= 2 && argv[1] == string("--help"))
@@ -35,6 +40,10 @@ int main(int argc, const char** argv)
     else
     {
       bool read = true;
+
+
+      //timer.starttimer();
+
       while (read)
       {
         getline(file, line);
@@ -55,6 +64,11 @@ int main(int argc, const char** argv)
       }
       //Print tokens back to user.
       PrintTokens(tokens, linecols);
+      // timer.stoptimer();
+      // timer.elapsed();
+      //ELAPSED TIME WITH READING DRACULA .651063s
+      //ELAPSED TIME WITH READING DRACULA AND NOT PRINTING OUTPUT .0601123s
+
     }
   }
 
