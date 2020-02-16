@@ -32,24 +32,26 @@ int main(int argc, const char** argv)
          << "\"--help\"" << endl;
   }
 
-//User Input
-string line;
-int row = 0;
-bool loop = true;
-while (loop)
-{
-  getline(cin, line);
-  if (line == "END")
+
+  cout << "Enter some text. To exit type \"END\"." << endl;
+  //User Input
+  string line;
+  int row = 0;
+  bool loop = true;
+  while (loop)
   {
-    loop = false;
+    getline(cin, line);
+    if (line == "END" || line == "end" || line == "End")
+    {
+      loop = false;
+    }
+    row++;
+    ReadLine(line, tokens, linecols, row);
+
+
   }
-  row++;
-  ReadLine(line, tokens, linecols, row);
 
-
-}
-
-PrintTokens(tokens, linecols);
+  PrintTokens(tokens, linecols);
 
 
 

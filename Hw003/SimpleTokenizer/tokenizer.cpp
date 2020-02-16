@@ -21,6 +21,7 @@ void ReadLine(const std::string& line, std::vector<std::string>& tokens,
 {
   string str;
   istringstream iss(line);
+
   if (!line.empty())
   {
     while (!iss.eof())
