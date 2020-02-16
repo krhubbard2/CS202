@@ -22,37 +22,42 @@ int main(int argc, const char** argv)
 
   else if (argc >= 2 && argv[1] == string ("--tokenize"))
   {
-
+    ifstream file(argv[2]);
+    if (!file)
+    {
+      cout << "Error. Can't locate or open file. For help type \"--help\"\n";
+    }
   }
 
   //Incorrect argv input
   else if (argc >= 2)
-  {
-    cout << "Command not understood. For assistance please type"
-         << "\"--help\"" << endl;
-  }
-
-
-  cout << "Enter some text. To exit type \"END\"." << endl;
-  //User Input
-  string line;
-  int row = 0;
-  bool loop = true;
-  while (loop)
-  {
-    getline(cin, line);
-    if (line == "END" || line == "end" || line == "End")
     {
-      loop = false;
+      cout << "Command not understood. For assistance please type"
+           << "\"--help\"" << endl;
     }
-    row++;
-    ReadLine(line, tokens, linecols, row);
+
+    else if (argc <= 2)
+    {
+    cout << "Enter some text. To exit type \"END\"." << endl;
+    //User Input
+    string line;
+    int row = 0;
+    bool loop = true;
+    while (loop)
+    {
+      getline(cin, line);
+      if (line == "END" || line == "end" || line == "End")
+      {
+        loop = false;
+      }
+      row++;
+      ReadLine(line, tokens, linecols, row);
 
 
+    }
+
+    PrintTokens(tokens, linecols);
   }
-
-  PrintTokens(tokens, linecols);
-
 
 
 

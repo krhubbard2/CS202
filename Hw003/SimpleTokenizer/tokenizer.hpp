@@ -19,6 +19,8 @@ using std::string;
 using std::vector;
 #include <sstream>
 using std::istringstream;
+#include <fstream>
+using std::ifstream;
 
 
 
