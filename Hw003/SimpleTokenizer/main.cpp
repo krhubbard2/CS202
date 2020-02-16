@@ -9,7 +9,8 @@ int main(int argc, const char** argv)
 {
   vector<string> tokens;
   vector<std::pair<int, int>> linecols;
-
+  string line;
+  int row = 0;
 
   //Help command
   if (argc >= 2 && argv[1] == string("--help"))
@@ -27,6 +28,28 @@ int main(int argc, const char** argv)
     {
       cout << "Error. Can't locate or open file. For help type \"--help\"\n";
     }
+    else
+    {
+      bool read = true;
+      while (read)
+      {
+        getline(file, line);
+        row++;
+        ReadLine(line, tokens, linecols, row);
+        if (!file)
+        {
+          if (file.eof())
+          {
+            read = false;
+          }
+          else
+          {
+            read = true;
+          }
+        }
+      }
+      PrintTokens(tokens, linecols);
+    }
   }
 
   //Incorrect argv input
@@ -40,8 +63,6 @@ int main(int argc, const char** argv)
     {
     cout << "Enter some text. To exit type \"END\"." << endl;
     //User Input
-    string line;
-    int row = 0;
     bool loop = true;
     while (loop)
     {
