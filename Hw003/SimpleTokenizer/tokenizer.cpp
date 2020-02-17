@@ -18,8 +18,11 @@ void ReadLine(const std::string& line, std::vector<std::string>& tokens,
     while (!iss.eof())
     {
       iss >> str;
-      tokens.push_back(str);
-      linecols.push_back(std::make_pair(row, line.find(str) + 1));
+      if (iss)
+      {
+        tokens.push_back(str);
+        linecols.push_back(std::make_pair(row, line.find(str) + 1));
+      }
     }
   }
 
