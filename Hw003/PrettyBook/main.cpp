@@ -14,6 +14,7 @@ using std::string;
 using std::vector;
 #include <sstream>
 using std::istringstream;
+#include <algorithm>
 
 bool lineToTokens(const std::string& line, std::vector<std::string>& tokens)
 {
@@ -41,8 +42,8 @@ bool lineToTokens(const std::string& line, std::vector<std::string>& tokens)
 int main(int argc, char* argv[])
 {
   vector<string> paragraphs;
-  int wrap = 0;
   string line;
+  int wrap = std::stoi(argv[2]);
 
   if (argc < 2)
   {
@@ -51,7 +52,7 @@ int main(int argc, char* argv[])
          return 0;
   }
 
-  ifstream ifile(argv[2]);
+  ifstream ifile(argv[1]);
   if (!ifile)
   {
     cout << "Error. Couldn't read file." << endl;
@@ -66,13 +67,12 @@ int main(int argc, char* argv[])
     lineToTokens(line, paragraphs);
   }
 
-
     string tempstr;
     for (auto r : paragraphs)
     {
         if (tempstr.length() + r.length() >= wrap)
         {
-          cout << tempstr;
+          cout << tempstr << endl;
           tempstr = r;
         }
         else
@@ -88,5 +88,7 @@ int main(int argc, char* argv[])
     cout << tempstr;
 
 
+  cout << endl;
+  
   return 0;
 }
