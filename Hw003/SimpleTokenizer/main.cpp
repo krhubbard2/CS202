@@ -23,7 +23,8 @@ int main(int argc, const char** argv)
   {
     cout << "To tokenize a .txt file use the command"
          << " \"--tokenize filenamehere.txt\".\nEnsure the file is in the "
-         << "same directory as the program.\nOtherwise run the program to "
+         << "same directory as the program.\nTo do line only run command"
+         << " \"--lineonly filenamehere.txt\". \nOtherwise run the program to "
          << "tokenize input text." << endl;
   }
 
