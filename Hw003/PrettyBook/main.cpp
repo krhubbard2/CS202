@@ -28,10 +28,15 @@ bool lineToTokens(const std::string& line, std::vector<std::string>& tokens)
     }
     else
     {
-      str != l;
+      str += a;
     }
   }
-}
+    if (str.length() != 0)
+    {
+      tokens.push_back(str);
+    }
+    return true;
+  }
 
 int main()
 {
