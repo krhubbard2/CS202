@@ -24,6 +24,7 @@ public:
 void starttimer();
 void stoptimer();
 void elapsed();
+double mbps();
 };
 
 
