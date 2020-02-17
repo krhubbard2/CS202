@@ -65,7 +65,7 @@ int main(int argc, const char** argv)
         ifstream size(argv[2], std::ios::binary | std::ios::ate);
         double fsize = size.tellg();
 
-        double megabyte = 1000000 / fsize;
+        double megabyte =  (fsize / 1024) / 1024;
         double mbpstime = megabyte / timer.mbps();
         cout << "File size was " << megabyte << "MB. Result is "
              << mbpstime << " MB/second" << endl;
@@ -114,7 +114,7 @@ int main(int argc, const char** argv)
       ifstream size(argv[2], std::ios::binary | std::ios::ate);
       double fsize = size.tellg();
 
-      double megabyte = 1000000 / fsize;
+      double megabyte =  (fsize / 1024) / 1024;
       double mbpstime = megabyte / timer.mbps();
       cout << "File size was " << megabyte << "MB. Result is "
            << mbpstime << " MB/second" << endl;
