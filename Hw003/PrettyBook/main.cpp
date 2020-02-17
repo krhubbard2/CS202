@@ -38,43 +38,55 @@ bool lineToTokens(const std::string& line, std::vector<std::string>& tokens)
     return true;
   }
 
-int main()
+int main(int argc, char* argv[])
 {
   vector<string> paragraphs;
-  ifstream ifile("book.txt");
+  int wrap = 0;
+  string line;
+
+  if (argc < 2)
+  {
+    cout << "Error. Please try format: \"filename.txt 40\" or"
+         << "\"filename.txt --html\". Thank you. \n";
+         return 0;
+  }
+
+  ifstream ifile(argv[2]);
   if (!ifile)
   {
     cout << "Error. Couldn't read file." << endl;
   }
-  else
-  {
-    string line = "";
-    string para = "";
-    string word = "";
-    while (true)
-    {
-      getline(ifile, line);
 
-      //EOF check
-      if(!ifile)
-      {
-        if (ifile.eof())
+  while (getline(ifile, line))
+  {
+    if (line == "")
+    {
+      paragraphs.push_back("\n\n");
+    }
+    lineToTokens(line, paragraphs);
+  }
+
+
+    string tempstr;
+    for (auto r : paragraphs)
+    {
+        if (tempstr.length() + r.length() >= wrap)
         {
-          return false;
+          cout << tempstr;
+          tempstr = r;
         }
         else
         {
-          return true;
+          tempstr += r;
         }
-      }
 
-      istringstream iss(line);
-      while (iss >> word)
-      {
-        para.append(word);
-      }
+        if (tempstr.size() != wrap)
+        {
+          tempstr += " ";
+        }
     }
-  }
+    cout << tempstr;
+
 
   return 0;
 }
