@@ -61,6 +61,14 @@ int main(int argc, const char** argv)
         }
         timer.stoptimer();
         timer.elapsed();
+
+        ifstream size(argv[2], std::ios::binary | std::ios::ate);
+        double fsize = size.tellg();
+
+        double megabyte = 1000000 / fsize;
+        double mbpstime = megabyte / timer.mbps();
+        cout << "File size was ." << fsize << "MB. Result is "
+             << mbpstime << " MB/second" << endl;
       }
     }
 
@@ -102,7 +110,7 @@ int main(int argc, const char** argv)
 
       timer.stoptimer();
       timer.elapsed();
-      
+
       ifstream size(argv[2], std::ios::binary | std::ios::ate);
       double fsize = size.tellg();
 
