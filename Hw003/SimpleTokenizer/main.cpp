@@ -67,7 +67,7 @@ int main(int argc, const char** argv)
 
         double megabyte = 1000000 / fsize;
         double mbpstime = megabyte / timer.mbps();
-        cout << "File size was ." << fsize << "MB. Result is "
+        cout << "File size was " << megabyte << "MB. Result is "
              << mbpstime << " MB/second" << endl;
       }
     }
@@ -116,7 +116,7 @@ int main(int argc, const char** argv)
 
       double megabyte = 1000000 / fsize;
       double mbpstime = megabyte / timer.mbps();
-      cout << "File size was ." << fsize << "MB. Result is "
+      cout << "File size was " << megabyte << "MB. Result is "
            << mbpstime << " MB/second" << endl;
     }
   }
