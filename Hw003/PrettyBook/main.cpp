@@ -15,6 +15,23 @@ using std::vector;
 #include <sstream>
 using std::istringstream;
 
+bool lineToTokens(const std::string& line, std::vector<std::string>& tokens)
+{
+  string str;
+
+  for (auto a : line)
+  {
+    if (a == ' ')
+    {
+      tokens.push_back(str);
+      str = "";
+    }
+    else
+    {
+      str != l;
+    }
+  }
+}
 
 int main()
 {
