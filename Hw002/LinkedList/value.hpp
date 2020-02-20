@@ -15,7 +15,7 @@ using std::make_shared;
 using std::shared_ptr;
 #include <algorithm>
 using std::find;
-#include <catch.hpp>
+#include <catch2/catch.hpp>
 
 struct Value
 {
