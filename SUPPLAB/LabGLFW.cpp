@@ -1,7 +1,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <cmath>
-
+//test
 int main(void) {
     GLFWwindow* window;
 
