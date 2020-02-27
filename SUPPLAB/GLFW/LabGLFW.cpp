@@ -1,7 +1,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <cmath>
-//test
+
 
 int main(void) {
 	GLFWwindow* window;
@@ -72,7 +72,7 @@ int main(void) {
 			float c = std::cos(a * 3.14159f / 180.0f);
 			float s = std::sin(a * 3.14159f / 180.0f);
 			glColor3f(0, 1, 1);
-			glVertex3f(c, s, 0.0f);
+			glVertex3f(c, s, 0.0f);./La
 		}
 		glEnd();
 
