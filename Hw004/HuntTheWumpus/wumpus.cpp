@@ -1363,7 +1363,7 @@ void sm(const int p)
       //Check if a b at is in the same room, if so move player randomly
       if (b1 == 1 || b2 == 1)
       {
-
+        //WORKING ON THIS
       }
       //Check if a bat is in an adjoining room
       else if (b1 == 6 || b1 == 9 || b1 == 13 || b2 == 6 || b2 == 9 || b2 == 13)

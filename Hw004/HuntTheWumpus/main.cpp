@@ -33,6 +33,7 @@
 int main()
 {
   //Variables
+  int win = 0; // if win = 1 player wins; if win = 2 player loses
   int player = 0;
   int wumpus = 0;
   int bat1 = 0;
@@ -116,7 +117,11 @@ int main()
        << "Bat1: " << bat1 << endl << "bat2: " << bat2 << endl
        << "Pit1: " << pit1 << endl << "Pit2: " << pit2 << endl;
 
- sm(player);
+while (win == 0)
+{
+  sm(player);
+}
+
 
 
  return 0;
