@@ -12,7 +12,7 @@ Hazard::Hazard(int type)
   _type = type;
 }
 
-int Hazard::getCurrentRoom()
+int Hazard::getCurrentRoom() const
 {
   return _room;
 }

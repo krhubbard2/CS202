@@ -175,7 +175,7 @@ int main()
   }
   //Set pit2 in random room (1-20)
   while (pit2.getCurrentRoom() == 0 ||
-         pit2.getCurrentRoom() == player.getCurrentRoom() || 
+         pit2.getCurrentRoom() == player.getCurrentRoom() ||
          pit2.getCurrentRoom() == wumpus.getCurrentRoom() ||
          pit2.getCurrentRoom() == bat1.getCurrentRoom() ||
          pit2.getCurrentRoom() == bat2.getCurrentRoom() ||
@@ -192,6 +192,8 @@ int main()
   cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
   cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
+  player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
+                    wumpus);
 
 
 
