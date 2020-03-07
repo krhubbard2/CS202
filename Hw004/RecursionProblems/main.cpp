@@ -33,6 +33,26 @@ int fib_loop(int n)
   return a;
 }
 
+//Factorial with recursion
+int factorial(int n)
+{
+  if (n > 1)
+  {
+    return n * factorial (n-1);
+  }
+  else
+  {
+    return 1;
+  }
+
+}
+
+//Factorial non recursion
+int factorial_loop(int n)
+{
+  return n;
+}
+
 TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
 {
   SECTION("FIBONACCI RECURSIVE")
@@ -51,5 +71,14 @@ TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
     REQUIRE( fib_loop(14) == 377 );
   }
 
+  SECTION ("FACTORIAL RECURSIVE")
+  {
+    REQUIRE (factorial(0) == 1);
+    REQUIRE (factorial(1) == 1);
+    REQUIRE (factorial(2) == 2);
+    REQUIRE (factorial(4) == 24);
+    REQUIRE (factorial(6) == 720);
+    REQUIRE (factorial(12) == 479001600);
+  }
 
 }
