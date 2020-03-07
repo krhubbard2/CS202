@@ -13,7 +13,6 @@ void move(int p)
 {
   bool loop = true;
   string sh;
-  cout << "Where to? ";
 
   if (p == 1)
   {
@@ -839,7 +838,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -865,7 +864,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -891,7 +890,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -917,7 +916,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -943,7 +942,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -969,7 +968,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -995,7 +994,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1021,7 +1020,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1047,7 +1046,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1073,7 +1072,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1099,7 +1098,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1125,7 +1124,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1151,7 +1150,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1177,7 +1176,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1203,7 +1202,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1229,7 +1228,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1255,7 +1254,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1281,7 +1280,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1307,7 +1306,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
@@ -1333,7 +1332,7 @@ void sm(const int p)
       }
       else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
       {
-        move();
+        move(p);
         loop = false;
       }
       else
