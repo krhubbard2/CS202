@@ -5,8 +5,8 @@
 #ifndef HAZARDS_HPP_
 #define HAZARDS_HPP_
 #include "cave.hpp"
-#include "player.hpp"
-#include "wumpus.hpp"
+// #include "player.hpp"
+// #include "wumpus.hpp"
 class Hazard
 {
   int _room = 0;

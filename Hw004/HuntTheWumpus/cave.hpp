@@ -6,6 +6,9 @@
 #ifndef CAVE_HPP_
 #define CAVE_HPP_
 
+// #include "hazards.hpp"
+// #include "player.hpp"
+// #include "wumpus.hpp"
 class Cave
 {
   //Room number identification

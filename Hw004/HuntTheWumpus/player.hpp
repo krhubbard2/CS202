@@ -7,6 +7,8 @@
 #include "cave.hpp"
 #include "hazards.hpp"
 #include "wumpus.hpp"
+
+
 class Player
 {
   //Alive = 0, Win = 1, Died to wumpus = 2, Died to pits = 3
