@@ -4,6 +4,7 @@
 // Hw004 -- Hunt the Wumpus
 #ifndef HAZARDS_HPP_
 #define HAZARDS_HPP_
+#include "cave.hpp"
 class Hazard
 {
   int _room = 0;
@@ -13,9 +14,10 @@ class Hazard
 public:
   Hazard();
   Hazard(int type);
-  int getRoom();
+  int getCurrentRoom();
   int getType();
   void setType(int type);
+  void setCurrentRoom(const Cave& room);
 };
 
 #endif

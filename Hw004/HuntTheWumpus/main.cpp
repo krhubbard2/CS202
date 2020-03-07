@@ -5,6 +5,7 @@
 #include "wumpus.hpp"
 #include "cave.hpp"
 #include "player.hpp"
+#include "hazards.hpp"
 
 /* CAVE SYSTEM LAYOUT
 1 -- 6,9,13
@@ -133,20 +134,63 @@ int main()
 
   }
 
-  //Declare player
+  //Declare player, wumpus, bats, and pits
   Player player;
+  Wumpus wumpus;
+  Hazard bat1(1);
+  Hazard bat2(1);
+  Hazard pit1(2);
+  Hazard pit2(2);
   //Set player in random room (1-20)
   player.setCurrentRoom(rooms[randInt(1,20)]);
-  //Declare wumpus
-  Wumpus wumpus;
   //Set wumpus in random room (1-20)
   while (wumpus.getCurrentRoom() == 0 ||
          wumpus.getCurrentRoom() == player.getCurrentRoom())
   {
     wumpus.setCurrentRoom(rooms[randInt(1,20)]);
   }
+  //Set bat1 in random room (1-20)
+  while (bat1.getCurrentRoom() == 0 ||
+         bat1.getCurrentRoom() == player.getCurrentRoom() ||
+         bat1.getCurrentRoom() == wumpus.getCurrentRoom())
+  {
+    bat1.setCurrentRoom(rooms[randInt(1,20)]);
+  }
+  //Set bat2 in random room (1-20)
+  while (bat2.getCurrentRoom() == 0 ||
+         bat2.getCurrentRoom() == player.getCurrentRoom() ||
+         bat2.getCurrentRoom() == wumpus.getCurrentRoom() ||
+         bat2.getCurrentRoom() == bat1.getCurrentRoom())
+  {
+    bat2.setCurrentRoom(rooms[randInt(1,20)]);
+  }
+  //Set pit1 in random room (1-20)
+  while (pit1.getCurrentRoom() == 0 ||
+         pit1.getCurrentRoom() == player.getCurrentRoom() ||
+         pit1.getCurrentRoom() == wumpus.getCurrentRoom() ||
+         pit1.getCurrentRoom() == bat1.getCurrentRoom() ||
+         pit1.getCurrentRoom() == bat2.getCurrentRoom())
+  {
+    pit1.setCurrentRoom(rooms[randInt(1,20)]);
+  }
+  //Set pit2 in random room (1-20)
+  while (pit2.getCurrentRoom() == 0 ||
+         pit2.getCurrentRoom() == player.getCurrentRoom() || 
+         pit2.getCurrentRoom() == wumpus.getCurrentRoom() ||
+         pit2.getCurrentRoom() == bat1.getCurrentRoom() ||
+         pit2.getCurrentRoom() == bat2.getCurrentRoom() ||
+         pit2.getCurrentRoom() == pit1.getCurrentRoom())
+  {
+    pit2.setCurrentRoom(rooms[randInt(1,20)]);
+  }
+
+
   cout << "Player start: " << player.getCurrentRoom() << endl;
   cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
+  cout << "Bat1 start: " << bat1.getCurrentRoom() << endl;
+  cout << "Bat2 start: " << bat2.getCurrentRoom() << endl;
+  cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
+  cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
 
 

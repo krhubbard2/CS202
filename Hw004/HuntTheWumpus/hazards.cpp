@@ -12,7 +12,7 @@ Hazard::Hazard(int type)
   _type = type;
 }
 
-int Hazard::getRoom()
+int Hazard::getCurrentRoom()
 {
   return _room;
 }
@@ -25,4 +25,9 @@ int Hazard::getType()
 void Hazard::setType(int type)
 {
   _type = type;
+}
+
+void Hazard::setCurrentRoom(const Cave& room)
+{
+  _room = room.getRoom();
 }
