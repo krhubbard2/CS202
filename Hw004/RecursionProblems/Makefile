@@ -1,4 +1,4 @@
-TARGET = HuntTheWumpus
+TARGET = Recursion
 SOURCES = $(wildcard *.cpp)
 HEADERS = $(wildcard *.h*)
 OBJECTS = $(SOURCES:%.cpp=%.o)
