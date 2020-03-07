@@ -9,10 +9,813 @@ void shoot()
   cout << "shot" << endl;
 }
 
-void move()
+void move(int p)
 {
-  cout << "move" << endl;
+  bool loop = true;
+  string sh;
+  cout << "Where to? ";
+
+  if (p == 1)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 6)
+        {
+          p = 6;
+          loop = false;
+        }
+        else if (mo == 9)
+        {
+          p = 9;
+          loop = false;
+        }
+        else if (mo == 13)
+        {
+          p = 13;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 2)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 4)
+        {
+          p = 4;
+          loop = false;
+        }
+        else if (mo == 8)
+        {
+          p = 8;
+          loop = false;
+        }
+        else if (mo == 19)
+        {
+          p = 19;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 3)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 6)
+        {
+          p = 6;
+          loop = false;
+        }
+        else if (mo == 16)
+        {
+          p = 16;
+          loop = false;
+        }
+        else if (mo == 17)
+        {
+          p = 17;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 4)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 2)
+        {
+          p = 2;
+          loop = false;
+        }
+        else if (mo == 5)
+        {
+          p = 5;
+          loop = false;
+        }
+        else if (mo == 7)
+        {
+          p = 7;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 5)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 4)
+        {
+          p = 4;
+          loop = false;
+        }
+        else if (mo == 8)
+        {
+          p = 8;
+          loop = false;
+        }
+        else if (mo == 9)
+        {
+          p = 9;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 6)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 1)
+        {
+          p = 1;
+          loop = false;
+        }
+        else if (mo == 3)
+        {
+          p = 3;
+          loop = false;
+        }
+        else if (mo == 15)
+        {
+          p = 15;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 7)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 4)
+        {
+          p = 4;
+          loop = false;
+        }
+        else if (mo == 11)
+        {
+          p = 11;
+          loop = false;
+        }
+        else if (mo == 18)
+        {
+          p = 18;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 8)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 2)
+        {
+          p = 2;
+          loop = false;
+        }
+        else if (mo == 5)
+        {
+          p = 5;
+          loop = false;
+        }
+        else if (mo == 12)
+        {
+          p = 12;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 9)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 1)
+        {
+          p = 1;
+          loop = false;
+        }
+        else if (mo == 5)
+        {
+          p = 5;
+          loop = false;
+        }
+        else if (mo == 10)
+        {
+          p = 10;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 10)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 9)
+        {
+          p = 9;
+          loop = false;
+        }
+        else if (mo == 13)
+        {
+          p = 13;
+          loop = false;
+        }
+        else if (mo == 16)
+        {
+          p = 16;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 11)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 7)
+        {
+          p = 7;
+          loop = false;
+        }
+        else if (mo == 14)
+        {
+          p = 14;
+          loop = false;
+        }
+        else if (mo == 18)
+        {
+          p = 18;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 12)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 8)
+        {
+          p = 8;
+          loop = false;
+        }
+        else if (mo == 17)
+        {
+          p = 17;
+          loop = false;
+        }
+        else if (mo == 19)
+        {
+          p = 19;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 13)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 1)
+        {
+          p = 1;
+          loop = false;
+        }
+        else if (mo == 10)
+        {
+          p = 10;
+          loop = false;
+        }
+        else if (mo == 15)
+        {
+          p = 15;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 14)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 7)
+        {
+          p = 7;
+          loop = false;
+        }
+        else if (mo == 11)
+        {
+          p = 11;
+          loop = false;
+        }
+        else if (mo == 18)
+        {
+          p = 18;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 15)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 6)
+        {
+          p = 6;
+          loop = false;
+        }
+        else if (mo == 13)
+        {
+          p = 13;
+          loop = false;
+        }
+        else if (mo == 16)
+        {
+          p = 16;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 16)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 3)
+        {
+          p = 3;
+          loop = false;
+        }
+        else if (mo == 10)
+        {
+          p = 10;
+          loop = false;
+        }
+        else if (mo == 15)
+        {
+          p = 15;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 17)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 3)
+        {
+          p = 3;
+          loop = false;
+        }
+        else if (mo == 12)
+        {
+          p = 12;
+          loop = false;
+        }
+        else if (mo == 20)
+        {
+          p = 20;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 18)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 7)
+        {
+          p = 7;
+          loop = false;
+        }
+        else if (mo == 14)
+        {
+          p = 14;
+          loop = false;
+        }
+        else if (mo == 20)
+        {
+          p = 20;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 19)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 2)
+        {
+          p = 2;
+          loop = false;
+        }
+        else if (mo == 12)
+        {
+          p = 12;
+          loop = false;
+        }
+        else if (mo == 20)
+        {
+          p = 20;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
+
+  if (p == 20)
+  {
+    while(loop)
+    {
+      cout << "Where to? ";
+      getline(cin, sh);
+      istringstream iss(sh);
+      int mo;
+      iss >> mo;
+      if (!iss)
+      {
+        cout << "Not possible." << endl;
+        loop = true;
+      }
+      else
+      {
+        if (mo == 17)
+        {
+          p = 17;
+          loop = false;
+        }
+        else if (mo == 18)
+        {
+          p = 18;
+          loop = false;
+        }
+        else if (mo == 19)
+        {
+          p = 19;
+          loop = false;
+        }
+        else
+        {
+          cout << "Not possible." << endl;
+          loop = true;
+        }
+      }
+    }
+  }
 }
+
 
 
 void sm(const int p)
