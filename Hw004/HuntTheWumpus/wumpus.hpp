@@ -22,6 +22,8 @@ using std::random_device;
 using std::uniform_int_distribution;
 #include <sstream>
 using std::istringstream;
+#include <vector>
+using std::vector;
 
 ////////////////////////////////////////////////////////////////////////////
 // P R O T O T Y P E S /////////////////////////////////////////////////////
