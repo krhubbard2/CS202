@@ -21,7 +21,7 @@ public:
   int getAlive() const;
   int getCurrentRoom() const;
   void setCurrentRoom(const Cave& room);
-  void act();
+  void move(const Cave& room);
   void seeHazards(const Cave& room, const Hazard& bat1,
                  const Hazard& bat2, const Hazard& pit1,
                  const Hazard& pit2, const Wumpus& wumpus);

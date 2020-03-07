@@ -201,8 +201,7 @@ int main()
     getline(cin, input);
     if (input == "m" || input == "M")
       {
-        //move
-        cout << "move" << endl;
+        player.move(rooms[player.getCurrentRoom()]);
       }
     else if (input == "s" || input == "S")
     {

@@ -68,9 +68,57 @@ void Player::seeHazards(const Cave& room, const Hazard& bat1,
         }
 }
 
+//Shows connecting rooms to player
 void Player::surrounding(const Cave& room)
 {
   std::cout << "You are in room " << _currentRoom << std::endl;
   std::cout << "Tunnels lead to rooms " << room.getRoomOne() << " "
             << room.getRoomTwo() << " " << room.getRoomThree() << std::endl;
+}
+
+//Allows player to move to connecting room
+void Player::move(const Cave& room)
+{
+  string input = "";
+  int choice;
+  bool loop = true;
+  while (loop)
+  {
+    std::cout << "Where to? ";
+    getline(cin, input);
+    istringstream iss(input);
+    iss >> choice;
+    if (iss)
+    {
+      //If player selected room 1
+      if (choice == room.getRoomOne())
+      {
+        _currentRoom = room.getRoomOne();
+        loop = false;
+      }
+      //If player selected room 2
+      else if (choice == room.getRoomTwo())
+      {
+        _currentRoom = room.getRoomTwo();
+        loop = false;
+      }
+      //If player selected room 3
+      else if (choice == room.getRoomThree())
+      {
+        _currentRoom = room.getRoomThree();
+        loop = false;
+      }
+      else
+      {
+        loop = true;
+      }
+    }
+    else
+    {
+      loop = true;
+    }
+  }
+
+
+
 }
