@@ -3,6 +3,30 @@
 // March 8, 2020
 // Hw004 -- Hunt the Wumpus
 #include "wumpus.hpp"
+
+
+Wumpus::Wumpus() {}
+
+void Wumpus::setCurrentRoom(const Cave& room)
+{
+  _currentRoom = room.getRoom();
+}
+
+int Wumpus::getCurrentRoom() const
+{
+  return _currentRoom;
+}
+
+
+
+
+
+
+
+
+
+
+
 int randInt(int low, int high)
 {
   random_device rd;

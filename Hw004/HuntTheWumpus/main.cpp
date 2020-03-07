@@ -134,9 +134,19 @@ int main()
   }
 
   //Declare player
-  Player player1;
-  player1.setCurrentRoom(rooms[randInt(1,20)]);
-  cout << player1.getCurrentRoom();
+  Player player;
+  //Set player in random room (1-20)
+  player.setCurrentRoom(rooms[randInt(1,20)]);
+  //Declare wumpus
+  Wumpus wumpus;
+  //Set wumpus in random room (1-20)
+  while (wumpus.getCurrentRoom() == 0 ||
+         wumpus.getCurrentRoom() == player.getCurrentRoom())
+  {
+    wumpus.setCurrentRoom(rooms[randInt(1,20)]);
+  }
+  cout << player.getCurrentRoom() << endl;
+  cout << wumpus.getCurrentRoom() << endl;
 
 
 

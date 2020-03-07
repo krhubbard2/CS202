@@ -24,10 +24,22 @@ using std::uniform_int_distribution;
 using std::istringstream;
 #include <vector>
 using std::vector;
-
+#include "cave.hpp"
 ////////////////////////////////////////////////////////////////////////////
 // P R O T O T Y P E S /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
+
+class Wumpus
+{
+  int _currentRoom = 0;
+
+public:
+  Wumpus();
+  int getCurrentRoom() const;
+  void setCurrentRoom(const Cave& room);
+  void move();
+};
+
 
 void shoot(int &p);
 void move(int &p);
