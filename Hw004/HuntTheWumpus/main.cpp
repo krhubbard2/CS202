@@ -194,21 +194,27 @@ int main()
 
   while (player.getAlive() == 0)
   {
-    player.surrounding(rooms[player.getCurrentRoom()]);
-    player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
+    player.act(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                       wumpus);
-    cout << "Move or shoot (M/S)? ";
-    getline(cin, input);
-    if (input == "m" || input == "M")
-      {
-        player.move(rooms[player.getCurrentRoom()]);
-      }
-    else if (input == "s" || input == "S")
+    //If player happened to die on act, skip.
+    if (player.getAlive() == 0)
     {
-      //shoot
-      cout << "shoot" << endl;
+      player.surrounding(rooms[player.getCurrentRoom()]);
+      player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
+                        wumpus);
+      cout << "Move or shoot (M/S)? ";
+      getline(cin, input);
+      if (input == "m" || input == "M")
+        {
+          player.move(rooms[player.getCurrentRoom()]);
+        }
+      else if (input == "s" || input == "S")
+      {
+        //shoot
+        cout << "shoot" << endl;
+      }
     }
-
   }
+
  return 0;
 }

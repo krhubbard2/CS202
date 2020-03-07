@@ -108,17 +108,44 @@ void Player::move(const Cave& room)
         _currentRoom = room.getRoomThree();
         loop = false;
       }
+      //Improper choice. Try again.
       else
       {
         loop = true;
       }
     }
+    //Improper choice. Try again.
     else
     {
       loop = true;
     }
   }
+}
 
-
-
+//Hazard or wumpus acts upon player if player is in same room
+void Player::act(const Cave& room, const Hazard& bat1,
+         const Hazard& bat2, const Hazard& pit1,
+         const Hazard& pit2, const Wumpus& wumpus)
+{
+  //If player is in same room as wumpus
+  if (room.getRoom() == wumpus.getCurrentRoom())
+  {
+    _alive = 2;
+    std::cout << "Ah! The Wumpus ate you! Better luck next time." << std::endl;
+  }
+  //If player is in same room as a pit
+  else if (room.getRoom() == pit1.getCurrentRoom() ||
+           room.getRoom() == pit2.getCurrentRoom())
+  {
+    _alive = 3;
+    std::cout << "Ahhhhhhhhh! You fell to your death." << std::endl;
+  }
+  //If player is in same room as a bat
+  else if (room.getRoom() == bat1.getCurrentRoom() ||
+           room.getRoom() == bat2.getCurrentRoom())
+  {
+    std::cout << "You got snatched by a bat!" << endl;
+    _currentRoom = randInt(1,20);
+    cout << "You were transported to room " << _currentRoom << std::endl;
+  }
 }
