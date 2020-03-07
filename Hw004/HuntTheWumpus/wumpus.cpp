@@ -3,13 +3,26 @@
 // March 8, 2020
 // Hw004 -- Hunt the Wumpus
 #include "wumpus.hpp"
+void batmove(int &p)
+{
+  random_device rd;
+  mt19937 gen(rd());
+  uniform_int_distribution<int> distrib1(1,20);
+  int original = p;
+  while (p == original)
+  {
+    p = distrib1(gen);
+  }
+  cout << "The bats took you away to room " << p <<"!" << endl;
+
+}
 
 void shoot()
 {
   cout << "shot" << endl;
 }
 
-void move(int p)
+void move(int &p)
 {
   bool loop = true;
   string sh;
@@ -817,7 +830,7 @@ void move(int p)
 
 
 
-void sm(const int p)
+void sm(int &p)
 {
   string sh = "";
   bool loop = true;
@@ -1344,8 +1357,8 @@ void sm(const int p)
   }
 }
 
-  void check(int p, const int w, const int b1, const int b2, const int p1,
-             const int p2, int win)
+  void check(int &p, const int w, const int b1, const int b2, const int p1,
+             const int p2, int &win)
   {
     //If player is in room 1
     if (p == 1)
@@ -1353,20 +1366,30 @@ void sm(const int p)
       //Check if Wumpus is in same room if so, lose game
       if (w == 1)
       {
+        //Lose to wumpus
         win = 2;
       }
+      //Check if pit is in same room
+      else if (p1 == 1 || p2 == 1)
+      {
+        //Lose to pit
+        win = 3;
+      }
+      //Check if a b at is in the same room, if so move player randomly
+      else if (b1 == 1 || b2 == 1)
+      {
+        //batmove(p);
+
+        //WORKING ON THIS
+      }
       //Check if Wumpus is in an adjoining room
-      else if (w == 6 || w == 9 || w == 13)
+      if (w == 6 || w == 9 || w == 13)
       {
         cout << "I smell a wumpus." << endl;
       }
-      //Check if a b at is in the same room, if so move player randomly
-      if (b1 == 1 || b2 == 1)
-      {
-        //WORKING ON THIS
-      }
+
       //Check if a bat is in an adjoining room
-      else if (b1 == 6 || b1 == 9 || b1 == 13 || b2 == 6 || b2 == 9 || b2 == 13)
+      if (b1 == 6 || b1 == 9 || b1 == 13 || b2 == 6 || b2 == 9 || b2 == 13)
       {
         cout << "I hear flapping." << endl;
       }
