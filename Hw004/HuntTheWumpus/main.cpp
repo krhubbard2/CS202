@@ -13,6 +13,31 @@ using std::mt19937;
 using std::random_device;
 using std::uniform_int_distribution;
 
+/* CAVE SYSTEM LAYOUT
+1 -- 6,9,13
+2 -- 4,8,19
+3 -- 6,16,17
+4 -- 2,5,7
+5 -- 4,8,9
+6 -- 1,3,15
+7 -- 4,11,18
+8 -- 2,5,12
+9 -- 1,5,10
+10 -- 9,13,16
+11 -- 7,14,18
+12 -- 8,17,19
+13 -- 1,10,15
+14 -- 7,11,18
+15 -- 6,13,16
+16 -- 3,10,15
+17 -- 3,12,20
+18 -- 7,14,20
+19 -- 2,12,20
+20 -- 17,18,19
+
+
+*/
+
 int main()
 {
   //Variables
@@ -59,9 +84,6 @@ int main()
   pit2 = distrib1(gen);
 }
 
-  cout << "Player: " << player << endl << "Wumpus: " << wumpus << endl
-       << "Bat1: " << bat1 << endl << "bat2: " << bat2 << endl
-       << "Pit1: " << pit1 << endl << "Pit2: " << pit2 << endl;
 
 
 
@@ -98,4 +120,12 @@ int main()
 
   }
 
+  cout << "Player: " << player << endl << "Wumpus: " << wumpus << endl
+       << "Bat1: " << bat1 << endl << "bat2: " << bat2 << endl
+       << "Pit1: " << pit1 << endl << "Pit2: " << pit2 << endl;
+
+  cout << "You are in room " << player << endl;
+
+
+ return 0;
 }
