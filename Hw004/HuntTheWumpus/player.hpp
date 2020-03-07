@@ -24,6 +24,7 @@ public:
   void seeHazards(const Cave& room, const Hazard& bat1,
                  const Hazard& bat2, const Hazard& pit1,
                  const Hazard& pit2, const Wumpus& wumpus);
+  void surrounding(const Cave& room);
 };
 
 #endif

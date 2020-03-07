@@ -3,7 +3,7 @@
 // March 8, 2020
 // Hw004 -- Hunt the Wumpus
 #include "cave.hpp"
-
+#include <iostream>
 Cave::Cave() {}
 
 Cave::Cave(int room)

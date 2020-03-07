@@ -192,6 +192,7 @@ int main()
   cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
   cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
+  player.surrounding(rooms[player.getCurrentRoom()]);
   player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                     wumpus);
 

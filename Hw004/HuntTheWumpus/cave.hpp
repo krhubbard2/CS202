@@ -31,6 +31,7 @@ public:
   void setRoomOne(const Cave& cave);
   void setRoomTwo(const Cave& cave);
   void setRoomThree(const Cave& cave);
+  
 };
 
 #endif

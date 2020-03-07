@@ -62,3 +62,10 @@ void Player::seeHazards(const Cave& room, const Hazard& bat1,
           std::cout << "I smell a Wumpus." << std::endl;
         }
 }
+
+void Player::surrounding(const Cave& room)
+{
+  std::cout << "You are in room " << _currentRoom << std::endl;
+  std::cout << "Tunnels lead to rooms " << room.getRoomOne() << " "
+            << room.getRoomTwo() << " " << room.getRoomThree() << std::endl;
+}
