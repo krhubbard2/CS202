@@ -17,6 +17,11 @@ int Player::getCurrentRoom() const
   return _currentRoom;
 }
 
+int Player::getArrows() const
+{
+  return _arrows;
+}
+
 int Player::getAlive() const
 {
   return _alive;
@@ -147,5 +152,107 @@ void Player::act(const Cave& room, const Hazard& bat1,
     std::cout << "You got snatched by a bat!" << endl;
     _currentRoom = randInt(1,20);
     cout << "You were transported to room " << _currentRoom << std::endl;
+  }
+}
+
+//Allows player to try and shoot wumpus
+void Player::shoot(const Cave& room, Wumpus& wumpus)
+{
+  if (_arrows > 0)
+  {
+    bool loop = true;
+    string input = "";
+    int choice;
+    while (loop)
+    {
+      cout << "What room do you want to shoot the arrow in: ";
+      getline(cin, input);
+      istringstream iss(input);
+      iss >> choice;
+      if (iss)
+      {
+        //If you shoot your own room
+        if (choice == room.getRoom())
+        {
+          _alive = 4;
+          std::cout << "You shot yourself! Game over." << std::endl;
+          loop = false;
+        }
+        //If arrow goes in first room
+        else if (choice == room.getRoomOne())
+        {
+          //If hit the wumpus
+          if (wumpus.getCurrentRoom() == room.getRoomOne())
+          {
+            //Set wumpus to dead
+            wumpus.setAliveState(1);
+            std::cout << "You killed the Wumpus! You won!" << std::endl;
+          }
+          //If miss
+          else
+          {
+            //Minus 1 arrow.
+            _arrows -= 1;
+            std::cout << "You hit nothing. You now have " << _arrows
+                      << " arrow(s).\n";
+          }
+          loop = false;
+        }
+        //If arrow goes in second room
+        else if (choice == room.getRoomTwo())
+        {
+          //If hit the wumpus
+          if (wumpus.getCurrentRoom() == room.getRoomTwo())
+          {
+            //Set wumpus to dead
+            wumpus.setAliveState(1);
+            std::cout << "You killed the Wumpus! You won!" << std::endl;
+          }
+          //If miss
+          else
+          {
+            //Minus 1 arrow.
+            _arrows -= 1;
+            std::cout << "You hit nothing. You now have " << _arrows
+                      << " arrow(s).\n";
+          }
+          loop = false;
+        }
+        //If arrow goes in third room
+        else if (choice == room.getRoomThree())
+        {
+          //If hit the wumpus
+          if (wumpus.getCurrentRoom() == room.getRoomThree())
+          {
+            //Set wumpus to dead
+            wumpus.setAliveState(1);
+            std::cout << "You killed the Wumpus! You won!" << std::endl;
+          }
+          //If miss
+          else
+          {
+            //Minus 1 arrow.
+            _arrows -= 1;
+            std::cout << "You hit nothing. You now have " << _arrows
+                      << " arrow(s).\n";
+          }
+          loop = false;
+        }
+        //Improper choice
+        else
+        {
+          loop = true;
+        }
+      }
+      //Improper choice
+      else
+      {
+        loop = true;
+      }
+
+
+    }
+
+
   }
 }

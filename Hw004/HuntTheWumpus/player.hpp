@@ -11,15 +11,17 @@
 
 class Player
 {
-  //Alive = 0, Win = 1, Died to wumpus = 2, Died to pits = 3
+  //Alive = 0, Win = 1, Died to wumpus = 2, Died to pits = 3, died to arrow = 4
   int _alive = 0;
   int _currentRoom = 0;
+  int _arrows = 5;
 
 public:
   Player();
   Player(int alive, const Cave& current_room);
   int getAlive() const;
   int getCurrentRoom() const;
+  int getArrows() const;
   void setCurrentRoom(const Cave& room);
   void move(const Cave& room);
   void seeHazards(const Cave& room, const Hazard& bat1,
@@ -29,7 +31,7 @@ public:
   void act(const Cave& room, const Hazard& bat1,
            const Hazard& bat2, const Hazard& pit1,
            const Hazard& pit2, const Wumpus& wumpus);
-
+  void shoot(const Cave& room, Wumpus& wumpus);
 };
 
 #endif

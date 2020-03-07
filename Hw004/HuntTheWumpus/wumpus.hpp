@@ -34,12 +34,15 @@ using std::vector;
 class Wumpus
 {
   int _currentRoom = 0;
+  int _alive = 0;
 
 public:
   Wumpus();
   int getCurrentRoom() const;
+  int getAliveState() const;
   void setCurrentRoom(const Cave& room);
   void move();
+  void setAliveState(int type);
 };
 
 int randInt(int low, int high);

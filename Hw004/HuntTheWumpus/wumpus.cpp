@@ -17,8 +17,15 @@ int Wumpus::getCurrentRoom() const
   return _currentRoom;
 }
 
+int Wumpus::getAliveState() const
+{
+  return _alive;
+}
 
-
+void Wumpus::setAliveState(int type)
+{
+  _alive = type;
+}
 
 
 

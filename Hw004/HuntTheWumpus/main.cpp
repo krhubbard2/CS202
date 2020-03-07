@@ -126,9 +126,8 @@ int main()
          << "may move or shoot an arrow that can go to 3 rooms." << endl
          << "Moving: You can move one room at a time." << endl
          << "Arrows: You have 5 arrows. You lose if you run out of arrows. "
-         << "Each arrow can go from 1 to 3 rooms. You aim by telling the "
-         << "computer the room #s you want the arrow to go through. If it"
-         << "can't go that way (it isn't connected to that room) it stops."
+         << "Each arrow can go to 1 room. You aim by telling the "
+         << "computer the room # you want the arrow to go through."
          << endl << "If the arrow hits the Wumpus, you win." << endl
          << "If the arrow hits you, you lose." << endl << "Good luck." << endl;
 
@@ -192,7 +191,8 @@ int main()
   cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
   cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
-  while (player.getAlive() == 0)
+  while (player.getAlive() == 0 && wumpus.getAliveState() == 0 &&
+         player.getArrows() != 0)
   {
     player.act(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                       wumpus);
@@ -210,10 +210,14 @@ int main()
         }
       else if (input == "s" || input == "S")
       {
-        //shoot
-        cout << "shoot" << endl;
+        player.shoot(rooms[player.getCurrentRoom()], wumpus);
       }
     }
+  }
+
+  if (player.getArrows() == 0)
+  {
+    cout << "You ran out of arrows. Game over. Better luck next time." << endl;
   }
 
  return 0;
