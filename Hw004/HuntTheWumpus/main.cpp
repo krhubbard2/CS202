@@ -194,12 +194,6 @@ int main()
   while (player.getAlive() == 0 && wumpus.getAliveState() == 0 &&
          player.getArrows() != 0)
   {
-    cout << "Player start: " << player.getCurrentRoom() << endl;
-    cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
-    cout << "Bat1 start: " << bat1.getCurrentRoom() << endl;
-    cout << "Bat2 start: " << bat2.getCurrentRoom() << endl;
-    cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
-    cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
     //If player is in danger room, act on them
     player.act(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                       wumpus);
