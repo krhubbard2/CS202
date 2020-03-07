@@ -18,6 +18,7 @@ class Player
 public:
   Player();
   Player(int alive, const Cave& current_room);
+  int getAlive() const;
   int getCurrentRoom() const;
   void setCurrentRoom(const Cave& room);
   void act();

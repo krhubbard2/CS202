@@ -17,6 +17,11 @@ int Player::getCurrentRoom() const
   return _currentRoom;
 }
 
+int Player::getAlive() const
+{
+  return _alive;
+}
+
 //Shows player hazards in connecting rooms to player
 void Player::seeHazards(const Cave& room, const Hazard& bat1,
                const Hazard& bat2, const Hazard& pit1,

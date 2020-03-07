@@ -184,7 +184,7 @@ int main()
     pit2.setCurrentRoom(rooms[randInt(1,20)]);
   }
 
-
+  string input;
   cout << "Player start: " << player.getCurrentRoom() << endl;
   cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
   cout << "Bat1 start: " << bat1.getCurrentRoom() << endl;
@@ -192,11 +192,24 @@ int main()
   cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
   cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
-  player.surrounding(rooms[player.getCurrentRoom()]);
-  player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
-                    wumpus);
+  while (player.getAlive() == 0)
+  {
+    player.surrounding(rooms[player.getCurrentRoom()]);
+    player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
+                      wumpus);
+    cout << "Move or shoot (M/S)? ";
+    getline(cin, input);
+    if (input == "m" || input == "M")
+      {
+        //move
+        cout << "move" << endl;
+      }
+    else if (input == "s" || input == "S")
+    {
+      //shoot
+      cout << "shoot" << endl;
+    }
 
-
-
+  }
  return 0;
 }
