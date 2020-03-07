@@ -156,7 +156,8 @@ void Player::act(const Cave& room, const Hazard& bat1,
 }
 
 //Allows player to try and shoot wumpus
-void Player::shoot(const Cave& room, Wumpus& wumpus)
+void Player::shoot(const Cave& playerroom, const Cave& wumpusroom,
+                  Wumpus& wumpus)
 {
   if (_arrows > 0)
   {
@@ -172,17 +173,17 @@ void Player::shoot(const Cave& room, Wumpus& wumpus)
       if (iss)
       {
         //If you shoot your own room
-        if (choice == room.getRoom())
+        if (choice == playerroom.getRoom())
         {
           _alive = 4;
           std::cout << "You shot yourself! Game over." << std::endl;
           loop = false;
         }
         //If arrow goes in first room
-        else if (choice == room.getRoomOne())
+        else if (choice == playerroom.getRoomOne())
         {
           //If hit the wumpus
-          if (wumpus.getCurrentRoom() == room.getRoomOne())
+          if (wumpus.getCurrentRoom() == playerroom.getRoomOne())
           {
             //Set wumpus to dead
             wumpus.setAliveState(1);
@@ -195,14 +196,46 @@ void Player::shoot(const Cave& room, Wumpus& wumpus)
             _arrows -= 1;
             std::cout << "You hit nothing. You now have " << _arrows
                       << " arrow(s).\n";
+
+            //Wakes wumpus if he was in one of the connected rooms
+            if (wumpus.getCurrentRoom() == playerroom.getRoomOne() ||
+                wumpus.getCurrentRoom() == playerroom.getRoomTwo() ||
+                wumpus.getCurrentRoom() == playerroom.getRoomThree())
+            {
+              int wumpusmove = randInt(1,3);
+              if (wumpusmove == 1)
+              {
+                wumpus.setCurrentRoom(wumpusroom.getRoomOne());
+                if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                {
+                  std::cout << "The Wumpus walked into your room!\n";
+                }
+              }
+              else if (wumpusmove == 2)
+              {
+                wumpus.setCurrentRoom(wumpusroom.getRoomTwo());
+                if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                {
+                  std::cout << "The Wumpus walked into your room!\n";
+                }
+              }
+              else if (wumpusmove == 3)
+              {
+                wumpus.setCurrentRoom(wumpusroom.getRoomThree());
+                if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                {
+                  std::cout << "The Wumpus walked into your room!\n";
+                }
+              }
+            }
           }
           loop = false;
         }
         //If arrow goes in second room
-        else if (choice == room.getRoomTwo())
+        else if (choice == playerroom.getRoomTwo())
         {
           //If hit the wumpus
-          if (wumpus.getCurrentRoom() == room.getRoomTwo())
+          if (wumpus.getCurrentRoom() == playerroom.getRoomTwo())
           {
             //Set wumpus to dead
             wumpus.setAliveState(1);
@@ -215,14 +248,45 @@ void Player::shoot(const Cave& room, Wumpus& wumpus)
             _arrows -= 1;
             std::cout << "You hit nothing. You now have " << _arrows
                       << " arrow(s).\n";
+                      //Wakes wumpus if he was in one of the connected rooms
+                      if (wumpus.getCurrentRoom() == playerroom.getRoomOne() ||
+                          wumpus.getCurrentRoom() == playerroom.getRoomTwo() ||
+                          wumpus.getCurrentRoom() == playerroom.getRoomThree())
+                      {
+                        int wumpusmove = randInt(1,3);
+                        if (wumpusmove == 1)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomOne());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                        else if (wumpusmove == 2)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomTwo());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                        else if (wumpusmove == 3)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomThree());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                      }
           }
           loop = false;
         }
         //If arrow goes in third room
-        else if (choice == room.getRoomThree())
+        else if (choice == playerroom.getRoomThree())
         {
           //If hit the wumpus
-          if (wumpus.getCurrentRoom() == room.getRoomThree())
+          if (wumpus.getCurrentRoom() == playerroom.getRoomThree())
           {
             //Set wumpus to dead
             wumpus.setAliveState(1);
@@ -235,6 +299,37 @@ void Player::shoot(const Cave& room, Wumpus& wumpus)
             _arrows -= 1;
             std::cout << "You hit nothing. You now have " << _arrows
                       << " arrow(s).\n";
+                      //Wakes wumpus if he was in one of the connected rooms
+                      if (wumpus.getCurrentRoom() == playerroom.getRoomOne() ||
+                          wumpus.getCurrentRoom() == playerroom.getRoomTwo() ||
+                          wumpus.getCurrentRoom() == playerroom.getRoomThree())
+                      {
+                        int wumpusmove = randInt(1,3);
+                        if (wumpusmove == 1)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomOne());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                        else if (wumpusmove == 2)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomTwo());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                        else if (wumpusmove == 3)
+                        {
+                          wumpus.setCurrentRoom(wumpusroom.getRoomThree());
+                          if (wumpus.getCurrentRoom() == playerroom.getRoom())
+                          {
+                            std::cout << "The Wumpus walked into your room!\n";
+                          }
+                        }
+                      }
           }
           loop = false;
         }

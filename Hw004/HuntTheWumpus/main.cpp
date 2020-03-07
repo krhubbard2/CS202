@@ -30,7 +30,13 @@
 20 -- 17,18,19
 */
 
-
+int randInt(int low, int high)
+{
+  random_device rd;
+  mt19937 gen1(rd());
+  uniform_int_distribution<int> dist(low,high);
+  return dist(gen1);
+}
 
 int main()
 {
@@ -184,37 +190,44 @@ int main()
   }
 
   string input;
-  cout << "Player start: " << player.getCurrentRoom() << endl;
-  cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
-  cout << "Bat1 start: " << bat1.getCurrentRoom() << endl;
-  cout << "Bat2 start: " << bat2.getCurrentRoom() << endl;
-  cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
-  cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
 
   while (player.getAlive() == 0 && wumpus.getAliveState() == 0 &&
          player.getArrows() != 0)
   {
+    cout << "Player start: " << player.getCurrentRoom() << endl;
+    cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
+    cout << "Bat1 start: " << bat1.getCurrentRoom() << endl;
+    cout << "Bat2 start: " << bat2.getCurrentRoom() << endl;
+    cout << "Pit1 start: " << pit1.getCurrentRoom() << endl;
+    cout << "Pit2 start: " << pit2.getCurrentRoom() << endl;
+    //If player is in danger room, act on them
     player.act(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                       wumpus);
     //If player happened to die on act, skip.
     if (player.getAlive() == 0)
     {
+      //Shows player surrounding tunnels
       player.surrounding(rooms[player.getCurrentRoom()]);
+      //Shows player surrounding hazards
       player.seeHazards(rooms[player.getCurrentRoom()], bat1, bat2, pit1, pit2,
                         wumpus);
       cout << "Move or shoot (M/S)? ";
       getline(cin, input);
       if (input == "m" || input == "M")
         {
+          //move function
           player.move(rooms[player.getCurrentRoom()]);
         }
       else if (input == "s" || input == "S")
       {
-        player.shoot(rooms[player.getCurrentRoom()], wumpus);
+        //shoot function
+        player.shoot(rooms[player.getCurrentRoom()],
+                     rooms[wumpus.getCurrentRoom()], wumpus);
       }
     }
   }
 
+  //If player ran out of arrows, explain why they lost.
   if (player.getArrows() == 0)
   {
     cout << "You ran out of arrows. Game over. Better luck next time." << endl;

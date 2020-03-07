@@ -31,7 +31,8 @@ public:
   void act(const Cave& room, const Hazard& bat1,
            const Hazard& bat2, const Hazard& pit1,
            const Hazard& pit2, const Wumpus& wumpus);
-  void shoot(const Cave& room, Wumpus& wumpus);
+  void shoot(const Cave& playerroom, const Cave& wumpusroom,
+                             Wumpus& wumpus);
 };
 
 #endif
