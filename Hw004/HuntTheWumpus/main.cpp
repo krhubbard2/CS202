@@ -145,8 +145,8 @@ int main()
   {
     wumpus.setCurrentRoom(rooms[randInt(1,20)]);
   }
-  cout << player.getCurrentRoom() << endl;
-  cout << wumpus.getCurrentRoom() << endl;
+  cout << "Player start: " << player.getCurrentRoom() << endl;
+  cout << "Wumpus start: " << wumpus.getCurrentRoom() << endl;
 
 
 
