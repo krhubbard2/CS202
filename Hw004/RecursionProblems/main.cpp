@@ -2,42 +2,10 @@
 // CS202
 // March 8, 2020
 // Hw004 -- Recursion Problems
-// #include <catch2/catch.hpp>
-// #include <iostream>
-// #define CATCH_CONFIG_MAIN
-//
-// int fib(int n)
-// {
-//   //
-//
-//   return 0;
-// }
-//
-// int factorial(int n)
-// {
-//   //
-//
-//   return 0;
-// }
-//
-// int ack(int m, int n)
-// {
-//   //
-//
-//   return 0;
-// }
-//
-// TEST_CASE("Fibonacci Sequence", "[Fibonacci]")
-// {
-//     REQUIRE( fib(0) == 0 );
-//     REQUIRE( fib(1) == 1 );
-//     REQUIRE( fib(9) == 34 );
-//     REQUIRE( fib(14) == 377 );
-// }
-
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
+//Fibonacci with recursion
 unsigned int fib(unsigned int n)
  {
    if (n <= 1)
@@ -47,9 +15,41 @@ unsigned int fib(unsigned int n)
   return fib(n-1) + fib(n-2);
 }
 
-TEST_CASE( "Fibonacci Sequence", "[fibonacci]" ) {
+//Fibonacci without recursion
+int fib_loop(int n)
+{
+  if (n <= 1)
+  {
+    return n;
+  }
+  int a = 1;
+  int b = 1;
+  for (int i = 2; i < n; ++i)
+  {
+    int temp = a;
+    a += b;
+    b = temp;
+  }
+  return a;
+}
+
+TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
+{
+  SECTION("FIBONACCI RECURSIVE")
+  {
     REQUIRE( fib(0) == 0 );
     REQUIRE( fib(1) == 1 );
     REQUIRE( fib(9) == 34 );
     REQUIRE( fib(14) == 377 );
+  }
+
+  SECTION ("FIBONACCI NON RECURSIVE")
+  {
+    REQUIRE( fib_loop(0) == 0);
+    REQUIRE( fib_loop(1) == 1 );
+    REQUIRE( fib_loop(9) == 34 );
+    REQUIRE( fib_loop(14) == 377 );
+  }
+
+
 }
