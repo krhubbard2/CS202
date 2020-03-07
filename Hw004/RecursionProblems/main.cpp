@@ -65,6 +65,23 @@ int factorial_loop(int n)
   }
 }
 
+//Ackermann's Function
+int ack(int m, int n)
+{
+  if (m == 0)
+  {
+    return n + 1;
+  }
+  else if ((m > 0) && (n == 0))
+  {
+    return ack(m - 1, 1);
+  }
+  else if ((m > 0) && (n > 0))
+  {
+    return ack(m - 1, ack(m, n-1));
+  }
+}
+
 TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
 {
   SECTION("FIBONACCI RECURSIVE")
@@ -101,6 +118,16 @@ TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
     REQUIRE (factorial_loop(4) == 24);
     REQUIRE (factorial_loop(6) == 720);
     REQUIRE (factorial_loop(12) == 479001600);
+  }
+
+  SECTION ("ACKERMANN'S FUNCTION")
+  {
+    REQUIRE (ack(0,0) == 1);
+    REQUIRE (ack(1,0) == 2);
+    REQUIRE (ack(0,1) == 2);
+    REQUIRE (ack(1,1) == 3);
+    REQUIRE (ack(3,4) == 125);
+
   }
 
 }
