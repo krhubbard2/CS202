@@ -34,9 +34,542 @@ using std::uniform_int_distribution;
 18 -- 7,14,20
 19 -- 2,12,20
 20 -- 17,18,19
-
-
 */
+
+void shoot();
+
+void move();
+
+
+void sm(const int p)
+{
+  string sh = "";
+  bool loop = true;
+  cout << "You are in room " << p << endl;
+
+  if (p == 1)
+  {
+    cout << "Tunnels connect to rooms 6, 9, and 13." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 2)
+  {
+    cout << "Tunnels connect to rooms 4, 8, and 19." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 3)
+  {
+    cout << "Tunnels connect to rooms 6, 16, and 17." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 4)
+  {
+    cout << "Tunnels connect to rooms 2, 5, and 7." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 5)
+  {
+    cout << "Tunnels connect to rooms 4, 8, and 9." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 6)
+  {
+    cout << "Tunnels connect to rooms 1, 3, and 15." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 7)
+  {
+    cout << "Tunnels connect to rooms 4, 11, and 18." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 8)
+  {
+    cout << "Tunnels connect to rooms 2, 5, and 12." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 9)
+  {
+    cout << "Tunnels connect to rooms 1, 5, and 10." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 10)
+  {
+    cout << "Tunnels connect to rooms 9, 13, and 16." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 11)
+  {
+    cout << "Tunnels connect to rooms 7, 14, and 18." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 12)
+  {
+    cout << "Tunnels connect to rooms 8, 17, and 19." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 13)
+  {
+    cout << "Tunnels connect to rooms 1, 10, and 15." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 14)
+  {
+    cout << "Tunnels connect to rooms 7, 11, and 18." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 15)
+  {
+    cout << "Tunnels connect to rooms 6, 13, and 16." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 16)
+  {
+    cout << "Tunnels connect to rooms 3, 10, and 15." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 17)
+  {
+    cout << "Tunnels connect to rooms 3, 12, and 20." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 18)
+  {
+    cout << "Tunnels connect to rooms 7, 14, and 20." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 19)
+  {
+    cout << "Tunnels connect to rooms 2, 12, and 20." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+  if (p == 20)
+  {
+    cout << "Tunnels connect to rooms 17, 18, and 19." << endl;
+    cout << "Shoot or move (S/M): ";
+    while(loop)
+    {
+      getline(cin, sh);
+
+      if (sh == "S" || sh == "s" || sh == "shoot" || sh == "SHOOT")
+      {
+        shoot();
+        loop = false;
+      }
+      else if (sh == "M" || sh == "m" || sh == "move" || sh == "MOVE")
+      {
+        move();
+        loop = false;
+      }
+      else
+      {
+        cout << "Shoot or move (S/M): ";
+        loop = true;
+      }
+    }
+  }
+
+
+}
+
 
 int main()
 {
