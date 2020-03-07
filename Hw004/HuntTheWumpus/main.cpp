@@ -11,6 +11,15 @@ using std::string;
 
 int main()
 {
+  //Variables
+  int player = 0;
+  int wumpus = 0;
+  int bat1 = 0;
+  int bat2 = 0;
+  int pit1 = 0;
+  int pit2 = 0;
+
+
   cout << "Hunt the Wumpus" << endl;
   //Instructions
   cout << "Would you like instructions (Y/N)? ";
@@ -43,5 +52,4 @@ int main()
 
   }
 
-  //No Instructions
 }
