@@ -4,6 +4,7 @@
 // Hw004 -- Hunt the Wumpus
 #ifndef PLAYER_HPP_
 #define PLAYER_HPP_
+#include "cave.hpp"
 class Player
 {
   //Alive = 0, Win = 1, Died to wumpus = 2, Died to pits = 3

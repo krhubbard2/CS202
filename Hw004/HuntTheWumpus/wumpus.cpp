@@ -3,6 +3,13 @@
 // March 8, 2020
 // Hw004 -- Hunt the Wumpus
 #include "wumpus.hpp"
+int randInt(int low, int high)
+{
+  random_device rd;
+  mt19937 gen1(rd());
+  uniform_int_distribution<int> dist(low,high);
+  return dist(gen1);
+}
 void batmove(int &p)
 {
   random_device rd;
