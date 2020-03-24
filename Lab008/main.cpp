@@ -7,15 +7,17 @@
 using std::cout;
 using std::endl;
 #include "complex.hpp"
+#include <iomanip>
 
 //Design
 // [X] Create Complex Class
-// [] Override << operator
+// [X] Override << operator
 // [] Override + operator
 // [] Override += operator
 
 int main(int argc, char** argv)
 {
+  cout << std::fixed;
   cout << Complex(2,3) << endl;
   cout << 1 + Complex(2,3) << endl;
 

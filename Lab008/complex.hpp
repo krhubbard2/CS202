@@ -5,6 +5,8 @@
 #ifndef COMPLEX_HPP_
 #define COMPLEX_HPP_
 
+#include <iostream>
+
 class Complex
 {
 public:
@@ -15,6 +17,9 @@ private:
   double _real{0};
   double _imag{0};
 };
+
+std::ostream& operator<<(std::ostream& os, const Complex& complex);
+
 
 
 
