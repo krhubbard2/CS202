@@ -13,12 +13,21 @@ class Customer
 public:
     Customer();
 
+    const std::string& firstName() const{ return _firstName;}
+    const std::string& lastName() const{ return _lastName;}
+    double bankBalance() const{ return _bankBalance;}
+
+    void setFirstName(const std::string& newFirstName);
+    void setLastName(const std::string& newLastName);
+    void setBankBalance(double newBankBalance);
 private:
     std::string _firstName{"Kelby"};
     std::string _lastName{"Hubbard"};
     double _bankBalance{100.00};
 
 };
+
+std::ostream& operator<<(std::ostream& os, const Customer& customer);
 
 
 

@@ -5,16 +5,27 @@
 
 #include <iostream>
 #include <iomanip>
+#include "customer.hpp"
 
 //Design
 // [X] Create Customer Class
-// [] Write setters/getters
+// [X] Write setters/getters
 // [] override << operator
 // [] overide = operator
 
 int main(int argc, char** argv)
 {
+  std::cout.imbue(std::locale("en_US.UTF-8"));
+  std::cout << std::showbase;
 
+  const Customer customer;
+  std::cout << customer << "\n";
+
+  Customer customer2;
+  customer2.setFirstName("Albert");
+  customer2.setLastName("Einstein");
+  customer2.setBankBalance(200.00);
+  std::cout << customer2 << std::endl;
 
 
 
