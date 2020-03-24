@@ -15,8 +15,9 @@ Complex Complex::operator+(const Complex& complex)
 
 Complex& Complex::operator+=(const Complex complex)
 {
-  _real += complex._real;
-  _imag += complex._imag;
+  *this = *this + complex;
+  // _real += complex._real;
+  // _imag += complex._imag;
   return *this;
 }
 
