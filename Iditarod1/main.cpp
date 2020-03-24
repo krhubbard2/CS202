@@ -9,7 +9,7 @@
 //Design
 // [X] fib(n)
 // [X] fib_loop(n)
-// [] factorial(n)
+// [X] factorial(n)
 // [] factorial_loop(n)
 
 //Fibonacci with recursion
@@ -40,6 +40,20 @@ int fib_loop(int n)
   return a;
 }
 
+//Factorial with recursion
+int factorial(int n)
+{
+  if (n > 1)
+  {
+    return n * factorial (n-1);
+  }
+  else
+  {
+    return 1;
+  }
+
+}
+
 
 TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
 {
@@ -57,6 +71,16 @@ TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
     REQUIRE( fib_loop(1) == 1 );
     REQUIRE( fib_loop(9) == 34 );
     REQUIRE( fib_loop(14) == 377 );
+  }
+
+  SECTION ("FACTORIAL RECURSIVE")
+  {
+    REQUIRE (factorial(0) == 1);
+    REQUIRE (factorial(1) == 1);
+    REQUIRE (factorial(2) == 2);
+    REQUIRE (factorial(4) == 24);
+    REQUIRE (factorial(6) == 720);
+    REQUIRE (factorial(12) == 479001600);
   }
 
 }
