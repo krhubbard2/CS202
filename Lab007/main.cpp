@@ -10,8 +10,8 @@
 //Design
 // [X] Create Customer Class
 // [X] Write setters/getters
-// [] override << operator
-// [] overide = operator
+// [X] override << operator
+// [X] overide = operator
 
 int main(int argc, char** argv)
 {
@@ -26,6 +26,10 @@ int main(int argc, char** argv)
   customer2.setLastName("Einstein");
   customer2.setBankBalance(200.00);
   std::cout << customer2 << std::endl;
+
+  Customer customer3;
+  customer3 = customer2;
+  std::cout << customer3 << std::endl;
 
 
 

@@ -13,6 +13,8 @@ class Customer
 public:
     Customer();
 
+    Customer& operator=(const Customer& other);
+
     const std::string& firstName() const{ return _firstName;}
     const std::string& lastName() const{ return _lastName;}
     double bankBalance() const{ return _bankBalance;}

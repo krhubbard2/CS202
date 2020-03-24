@@ -8,6 +8,14 @@
 
 Customer::Customer(){}
 
+Customer& Customer::operator=(const Customer& other)
+{
+  _firstName = other._firstName;
+  _lastName = other._lastName;
+  _bankBalance = other._bankBalance;
+  return *this;
+}
+
 void Customer::setFirstName(const std::string& newFirstName)
 {
   _firstName = newFirstName;
