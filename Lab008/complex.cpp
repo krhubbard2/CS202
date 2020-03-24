@@ -13,6 +13,13 @@ Complex Complex::operator+(const Complex& complex)
   return Complex(_real + complex._real, _imag + complex._imag);
 }
 
+Complex& Complex::operator+=(const Complex complex)
+{
+  _real += complex._real;
+  _imag += complex._imag;
+  return *this;
+}
+
 std::ostream& operator<<(std::ostream& os, const Complex& complex)
 {
   //Format:
