@@ -4,6 +4,8 @@
 // Iditarod Challenge 2
 
 #include <iostream>
+#include "stopwatch.hpp"
+
 using std::cout;
 using std::endl;
 
@@ -26,5 +28,9 @@ int ack(int m, int n)
 
 int main()
 {
+  StopWatch stopwatch;
+  stopwatch.starttimer();
   cout << ack(1,1) << endl;
+  stopwatch.stoptimer();
+  stopwatch.elapsed();
 }
