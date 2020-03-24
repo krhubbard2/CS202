@@ -10,7 +10,7 @@
 // [X] fib(n)
 // [X] fib_loop(n)
 // [X] factorial(n)
-// [] factorial_loop(n)
+// [X] factorial_loop(n)
 
 //Fibonacci with recursion
 unsigned int fib(unsigned int n)
@@ -54,6 +54,23 @@ int factorial(int n)
 
 }
 
+//Factorial non recursion
+int factorial_loop(int n)
+{
+  if (n > 1)
+  {
+    int a = 1, i;
+    for (i = 1; i <= n; i++)
+    {
+      a = a * i;
+    }
+    return a;
+  }
+  else
+  {
+    return 1;
+  }
+}
 
 TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
 {
@@ -83,4 +100,13 @@ TEST_CASE( "Fibonacci Sequence", "[fibonacci]" )
     REQUIRE (factorial(12) == 479001600);
   }
 
+  SECTION ("FACTORIAL NON REDCURSIVE")
+  {
+    REQUIRE (factorial_loop(0) == 1);
+    REQUIRE (factorial_loop(1) == 1);
+    REQUIRE (factorial_loop(2) == 2);
+    REQUIRE (factorial_loop(4) == 24);
+    REQUIRE (factorial_loop(6) == 720);
+    REQUIRE (factorial_loop(12) == 479001600);
+  }
 }
