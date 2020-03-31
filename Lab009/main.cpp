@@ -13,7 +13,7 @@ using std::endl;
 // [X] Static local variable
 // [X] Static global variable
 // [X] Static member variable
-// [] Static member function
+// [X] Static member function
 
 static int test_static_count = 0;
 
@@ -38,6 +38,17 @@ public:
   void printClassName()
   {
     cout << _className << endl;
+  }
+
+  static void writeClassName()
+  {
+    cout << "Static " << _className << endl;
+  }
+
+  static void writeClassName(const TestStatic& ts)
+  {
+    cout << "Static instance: " << ts.instanceNum_ << endl;
+
   }
 
 private:
@@ -82,6 +93,8 @@ int main(int argc, char** argv)
   foo_static();
 
   ts1.printClassName();
+  TestStatic::writeClassName(ts1);
+  TestStatic::writeClassName(ts2);
 
   cout << "Leaving main" << endl;
 
