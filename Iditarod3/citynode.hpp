@@ -8,14 +8,16 @@
 class CityNode
 {
 public:
-
+  void setNodeNumber(unsigned int node);
+  void setLatitudeY(double lat);
+  void setLongitudeX(double lon);
 
 private:
   unsigned int _nodeNumber;
   double _latitude;
   double _longitutde;
-  double graphx;
-  double graphy;
+  double _graphX;
+  double _graphY;
 };
 
 
