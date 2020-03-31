@@ -8,10 +8,11 @@ using std::cout;
 using std::endl;
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 // [X] Static local variable
 // [X] Static global variable
-// [] Static member variable
+// [X] Static member variable
 // [] Static member function
 
 static int test_static_count = 0;
@@ -23,6 +24,10 @@ public:
     instanceNum_(test_static_count) {
     cout << __FUNCTION__ << " " << instanceNum_ << " initialized." << endl;
     test_static_count++;
+
+    std::ostringstream ostr;
+    ostr << "TestStatic" << instanceNum_;
+    _className = ostr.str();
   }
 
   ~TestStatic()
@@ -30,9 +35,17 @@ public:
     cout << __FUNCTION__ << " " << instanceNum_ << " destroyed." << endl;
   }
 
+  void printClassName()
+  {
+    cout << _className << endl;
+  }
+
 private:
   int instanceNum_;
+  static std::string _className;
 };
+
+std::string TestStatic::_className{"test"};
 
 namespace
 {
@@ -54,14 +67,22 @@ void foo_static()
     cout << __FUNCTION__ << " called " << count << " times" << endl;
     count++;
   }
+  ts.printClassName();
 }
 
 int main(int argc, char** argv)
 {
   cout << "Starting main" << endl;
+
+  ts1.printClassName();
+  ts2.printClassName();
+
   foo_static();
   foo_static();
   foo_static();
+
+  ts1.printClassName();
+
   cout << "Leaving main" << endl;
 
   return 0;
