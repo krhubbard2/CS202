@@ -4,19 +4,46 @@
 // Iditarod Challenge #3
 #include "citynode.hpp"
 
+CityNode::CityNode() {}
+
+CityNode::CityNode(unsigned int node, double latY, double lonX)
+{
+  _nodeNumber = node;
+  _latitude = latY;
+  _graphY = latY;
+  _longitutde = lonX;
+  _graphX = lonX;
+}
+
 void CityNode::setNodeNumber(unsigned int node)
 {
- node = _nodeNumber;
+ _nodeNumber = node;
 }
 
 void CityNode::setLatitudeY(double lat)
 {
-  lat = _latitude;
-  lat = _graphY;
+  _latitude = lat;
+  _graphY = lat;
 }
 
 void CityNode::setLongitudeX(double lon)
 {
-  lon = _longitutde;
-  lon = _graphX;
+  _longitutde = lon;
+  _graphX = lon;
+}
+
+
+unsigned int CityNode::getNodeNumber()
+{
+  return _nodeNumber;
+}
+
+double CityNode::getLatitudeY()
+{
+  return _latitude;
+}
+
+double CityNode::getLongitudeX()
+{
+  return _longitutde;
 }

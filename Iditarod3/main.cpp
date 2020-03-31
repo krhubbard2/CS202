@@ -11,10 +11,17 @@ using std::cin;
 using std::ifstream;
 #include <string>
 using std::string;
+#include <sstream>
+using std::istringstream;
 #include "citynode.hpp"
+
+void readTSP(string fileName)
+{
+}
 
 int main(int argc, char** argv)
 {
+  CityNode brd1(1, 2918, 6528);
   ifstream ifile("brd14051.tsp");
   //Throw error if it can't open file
   if (!ifile)
@@ -23,9 +30,10 @@ int main(int argc, char** argv)
   }
   else
   {
-    string city;
+    string cityName;
     string line;
     bool loop = true;
+
     while (loop)
     {
       //If reading file hits an error or EOF
@@ -43,12 +51,20 @@ int main(int argc, char** argv)
       else
       {
         getline(ifile, line);
-        cout << line << endl;
+        int node;
+        istringstream iss(line);
+        iss >> node;
+        if (iss)
+        {
+        }
+
+
       }
 
     }
 
   }
+
 
 
 
