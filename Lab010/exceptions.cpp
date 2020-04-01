@@ -6,13 +6,15 @@
 #include <iostream>
 
 // [X] Write try/catch block
+// [X] Put runtime_error in functionC
 // [] Write object with constructor/destructor message
-// [] Put runtime_error in functionC
+
 
 
 void functionC()
 {
   //your code here
+  throw std::runtime_error("functionC() threw std::runtime_error");
 }
 
 void functionB()
