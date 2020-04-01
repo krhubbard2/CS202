@@ -5,9 +5,10 @@
 
 #include <iostream>
 
-// [] Put runtime_error in functionC
+// [X] Write try/catch block
 // [] Write object with constructor/destructor message
-// [] Write try/catch block
+// [] Put runtime_error in functionC
+
 
 void functionC()
 {
@@ -25,10 +26,18 @@ void functionB()
 void functionA()
 {
   // your code here
+  try
+  {
   functionB();
-  // your code here
-  std::cout << "Caught an exception: " << e.what() << std::endl;
-  // your code here
+  std::cout << "Shouldn't read / reach this." << std::endl;
+  }
+  catch(const std::exception& e)
+  {
+    // your code here
+    std::cout << "Caught an exception: " << e.what() << std::endl;
+    // your code here
+  }
+  std::cout << "This code should be read / reached" << std::endl;
 }
 
 int main()
