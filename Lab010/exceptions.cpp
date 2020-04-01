@@ -7,19 +7,29 @@
 
 // [X] Write try/catch block
 // [X] Put runtime_error in functionC
-// [] Write object with constructor/destructor message
+// [X] Write object with constructor/destructor message
 
-
+class TestObject
+{
+public:
+  TestObject()
+  {
+    std::cout << "TestObject constructed" << std::endl;
+  }
+  ~TestObject()
+  {
+    std::cout << "TestObject destroyed" << std::endl;
+  }
+};
 
 void functionC()
 {
-  //your code here
   throw std::runtime_error("functionC() threw std::runtime_error");
 }
 
 void functionB()
 {
-  //your code here
+  TestObject to;
   std::cout << "Starting functionB()\n";
   functionC();
   std::cout << "Ending functionB()\n";
@@ -27,7 +37,6 @@ void functionB()
 
 void functionA()
 {
-  // your code here
   try
   {
   functionB();
@@ -35,9 +44,7 @@ void functionA()
   }
   catch(const std::exception& e)
   {
-    // your code here
     std::cout << "Caught an exception: " << e.what() << std::endl;
-    // your code here
   }
   std::cout << "This code should be read / reached" << std::endl;
 }
