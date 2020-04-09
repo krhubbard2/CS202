@@ -22,7 +22,6 @@ public:
   double getLongitudeX();
 
 private:
-  string _cityName;
   unsigned int _nodeNumber;
   double _latitude;
   double _longitutde;
