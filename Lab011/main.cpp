@@ -9,7 +9,7 @@ using std::endl;
 
 // Design
 // [X] Default base class object
-// [] Base class object using 1 paremeter constructor
+// [X] Base class object using 1 paremeter constructor
 // [] Default dervied class object
 // [] Dervied class object using 2 paremeter constructor
 
@@ -21,10 +21,20 @@ class Base
 {
 public:
   Base(){
-     cout << "Constructing default Base object. Initial value is " << mph;}
+     cout << "Constructing default Base object. Initial value is " << _mph
+          << endl;}
+
+  Base(int mph)
+      : _mph(mph){
+    cout << "Constructing a Base object with value " << _mph << endl;
+  }
+
+  ~Base(){
+    cout << "Destructing a Base object with value " << _mph << endl;
+  }
 
 private:
-  int mph{60};
+  int _mph{60};
 };
 
 int main(int argc, char** argv)
@@ -33,6 +43,8 @@ int main(int argc, char** argv)
   {Base b;}
   cout << endl;
 
+  {Base b{16384};}
+  cout << endl;
 
 
 
