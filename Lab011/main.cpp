@@ -13,7 +13,7 @@ using std::string;
 // [X] Default base class object
 // [X] Base class object using 1 paremeter constructor
 // [X] Default dervied class object
-// [] Derived class object using 2 paremeter constructor
+// [X] Derived class object using 2 paremeter constructor
 
 ////////////////////////////////////////////////////////////////////////
 // B A S E    C L A S S ////////////////////////////////////////////////
@@ -50,6 +50,11 @@ public:
     cout << "Constructing a Derived object, name is " << _name << endl;
   }
 
+  Derived(int mph, const std::string& name)
+    : Base{mph}, _name{name}{
+      cout << "Constructing a Derived object with name " << _name << endl;
+  }
+
   ~Derived(){
     cout << "Destructing a Derived object with name " << _name << endl;
   }
@@ -70,7 +75,8 @@ int main(int argc, char** argv)
   {Derived d;}
   cout << endl;
 
-
+  {Derived d{100, "Porsche"};}
+  cout << endl;
 
 
 
