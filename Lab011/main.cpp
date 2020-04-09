@@ -6,12 +6,14 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+#include <string>
+using std::string;
 
 // Design
 // [X] Default base class object
 // [X] Base class object using 1 paremeter constructor
-// [] Default dervied class object
-// [] Dervied class object using 2 paremeter constructor
+// [X] Default dervied class object
+// [] Derived class object using 2 paremeter constructor
 
 ////////////////////////////////////////////////////////////////////////
 // B A S E    C L A S S ////////////////////////////////////////////////
@@ -37,6 +39,25 @@ private:
   int _mph{60};
 };
 
+////////////////////////////////////////////////////////////////////////
+// D E RI V E D    C L A S S ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+
+class Derived : public Base{
+public:
+  Derived()
+    : Base(75), _name{"Ferrari"}{
+    cout << "Constructing a Derived object, name is " << _name << endl;
+  }
+
+  ~Derived(){
+    cout << "Destructing a Derived object with name " << _name << endl;
+  }
+
+private:
+  string _name;
+};
+
 int main(int argc, char** argv)
 {
 
@@ -46,6 +67,8 @@ int main(int argc, char** argv)
   {Base b{16384};}
   cout << endl;
 
+  {Derived d;}
+  cout << endl;
 
 
 
