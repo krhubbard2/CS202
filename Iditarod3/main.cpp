@@ -109,6 +109,7 @@ int main(int argc, char** argv)
   CityNode brd1(1, 2918, 6528);
   CityNode node1(1, 2, 3);
 
+  // GET READTSP TO ADD EACH NODE TO CITYLIST
 
 
 
