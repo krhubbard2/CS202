@@ -16,7 +16,7 @@ using std::istringstream;
 #include "citynode.hpp"
 #include "citylist.hpp"
 
-void readTSP(string fileName, CityNode& node)
+void readTSP(string fileName, CityNode& node, CityList& city)
 {
   ifstream ifile(fileName);
   //Throw error if it can't open file
@@ -26,6 +26,7 @@ void readTSP(string fileName, CityNode& node)
   }
   else
   {
+    city.setFileName(fileName);
     string line;
     bool loop = true;
 
@@ -96,6 +97,7 @@ void readTSP(string fileName, CityNode& node)
                   node.setLongitudeX(val1);
                 }
               }
+              city.setCityNode(node);
             }
           }
         }
@@ -106,26 +108,33 @@ void readTSP(string fileName, CityNode& node)
 
 int main(int argc, char** argv)
 {
-  CityNode brd1(1, 2918, 6528);
-  CityNode node1(1, 2, 3);
+  CityNode node0(0, 0, 0);
 
-  // GET READTSP TO ADD EACH NODE TO CITYLIST
+  //Make CityList for BRD14051
+  CityList brd;
+  readTSP("brd14051.tsp", node0, brd);
 
+  //Make CityList for FL3795
+  CityList fl;
+  readTSP("fl3795.tsp", node0, fl);
 
+  //Make CityList for FNL4461
+  CityList fnl;
+  readTSP("fnl4461.tsp", node0, fnl);
 
+  //Make CityList for RL1304
+  CityList rl;
+  readTSP("rl1304.tsp", node0, rl);
 
-  readTSP("u2152.tsp", node1);
+  //Make CityList for U2152
+  CityList u;
+  readTSP("u2152.tsp", node0, u);
 
-  CityList brd(node1);
-
-  cout << "Node: " << node1.getNodeNumber() << " Lat: "
-       << node1.getLatitudeY() << " Lon: " << node1.getLongitudeX() << endl;
-
-  cout << "CityList: BRD Node: " << brd.getCityNode(0) << " Lat: "
-       << brd.getCityLat(0) << " Lon: " << brd.getCityLon(0) << endl;
-
-
-
+  brd.printCityNode();
+  fl.printCityNode();
+  fnl.printCityNode();
+  rl.printCityNode();
+  u.printCityNode();
 
 
   return 0;

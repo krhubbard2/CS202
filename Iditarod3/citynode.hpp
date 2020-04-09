@@ -24,7 +24,7 @@ public:
 private:
   unsigned int _nodeNumber;
   double _latitude;
-  double _longitutde;
+  double _longitude;
   double _graphX;
   double _graphY;
 };

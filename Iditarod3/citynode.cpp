@@ -11,7 +11,7 @@ CityNode::CityNode(unsigned int node, double latY, double lonX)
   _nodeNumber = node;
   _latitude = latY;
   _graphY = latY;
-  _longitutde = lonX;
+  _longitude = lonX;
   _graphX = lonX;
 }
 
@@ -28,7 +28,7 @@ void CityNode::setLatitudeY(double lat)
 
 void CityNode::setLongitudeX(double lon)
 {
-  _longitutde = lon;
+  _longitude = lon;
   _graphX = lon;
 }
 
@@ -45,5 +45,5 @@ double CityNode::getLatitudeY()
 
 double CityNode::getLongitudeX()
 {
-  return _longitutde;
+  return _longitude;
 }

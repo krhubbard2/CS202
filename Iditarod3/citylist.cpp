@@ -31,3 +31,23 @@ double CityList::getCityLon(int node)
 {
   return _cityList[node].getLongitudeX();
 }
+
+void CityList::printCityNode()
+{
+  for (auto a : _cityList)
+  {
+    cout << "City/File: " << getFileName() << " Node: " << a.getNodeNumber()
+         << " Lat: " << a.getLatitudeY() << " Lon: " << a.getLongitudeX()
+         << endl;
+  }
+}
+
+void CityList::setFileName(string name)
+{
+  _fileName = name;
+}
+
+string CityList::getFileName()
+{
+  return _fileName;
+}
