@@ -14,17 +14,11 @@ using std::string;
 #include <sstream>
 using std::istringstream;
 #include "citynode.hpp"
+#include "citylist.hpp"
 
-void readTSP(string fileName)
+void readTSP(string fileName, CityNode& node)
 {
-
-}
-
-int main(int argc, char** argv)
-{
-  CityNode brd1(1, 2918, 6528);
-  CityNode node1(1, 2, 3);
-  ifstream ifile("brd14051.tsp");
+  ifstream ifile(fileName);
   //Throw error if it can't open file
   if (!ifile)
   {
@@ -83,23 +77,23 @@ int main(int argc, char** argv)
               //Grab each section of string
               for (int i = 0; i < 3; i++)
               {
-                int val1;
+                double val1;
 
                 iss1 >> val1;
                 //Node number
                 if (i == 0)
                 {
-                  node1.setNodeNumber(val1);
+                  node.setNodeNumber(val1);
                 }
                 //Latitude
                 else if (i == 1)
                 {
-                  node1.setLatitudeY(val1);
+                  node.setLatitudeY(val1);
                 }
                 //Longitude
                 else if (i == 2)
                 {
-                  node1.setLongitudeX(val1);
+                  node.setLongitudeX(val1);
                 }
               }
             }
@@ -108,8 +102,26 @@ int main(int argc, char** argv)
       }
     }
   }
+}
+
+int main(int argc, char** argv)
+{
+  CityNode brd1(1, 2918, 6528);
+  CityNode node1(1, 2, 3);
+
+
+
+
+
+  readTSP("u2152.tsp", node1);
+
+  CityList brd(node1);
+
   cout << "Node: " << node1.getNodeNumber() << " Lat: "
-       << node1.getLatitudeY() << " Lon: " << node1.getLongitudeX();
+       << node1.getLatitudeY() << " Lon: " << node1.getLongitudeX() << endl;
+
+  cout << "CityList: BRD Node: " << brd.getCityNode(0) << " Lat: "
+       << brd.getCityLat(0) << " Lon: " << brd.getCityLon(0) << endl;
 
 
 
