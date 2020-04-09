@@ -11,7 +11,6 @@ CityList::CityList(CityNode node)
   _cityList.push_back(node);
 }
 
-
 void CityList::setCityNode(CityNode node)
 {
   _cityList.push_back(node);
@@ -19,17 +18,17 @@ void CityList::setCityNode(CityNode node)
 
 unsigned int CityList::getCityNode(int node)
 {
-  return _cityList[node].getNodeNumber();
+  return _cityList[node-1].getNodeNumber();
 }
 
 double CityList::getCityLat(int node)
 {
-  return _cityList[node].getLatitudeY();
+  return _cityList[node-1].getLatitudeY();
 }
 
 double CityList::getCityLon(int node)
 {
-  return _cityList[node].getLongitudeX();
+  return _cityList[node-1].getLongitudeX();
 }
 
 void CityList::printAllCityNodes()
@@ -60,4 +59,20 @@ void CityList::setFileName(string name)
 string CityList::getFileName()
 {
   return _fileName;
+}
+
+  //Returns Euclidean distance between two cities (node 1 & node 2).
+double CityList::distance(int first, int second)
+{
+  //x = long y = lat
+  double d, x1, x2, y1, y2;
+  x1 = getCityLon(first);
+  x2 = getCityLon(second);
+  y1 = getCityLat(first);
+  y2 = getCityLat(second);
+
+  d = sqrt(pow((x2-x1),2) + pow((y2-y1),2));
+
+  return d;
+
 }

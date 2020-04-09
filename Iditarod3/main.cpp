@@ -138,6 +138,8 @@ int main(int argc, char** argv)
 
   rl.printSpecCityNode(1300);
 
+  cout << "Distance from node 1 and node 20 in rl: " << rl.distance(1, 20)
+       << endl;
 
   return 0;
 }

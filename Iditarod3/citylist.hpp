@@ -13,6 +13,7 @@ using std::string;
 #include <vector>
 using std::vector;
 #include "citynode.hpp"
+#include <cmath>
 
 class CityList
 {
@@ -38,6 +39,9 @@ public:
 
   //returns _fileName
   string getFileName();
+
+  //Returns Euclidean distance between two cities (node 1 & node 2).
+  double distance(int first, int second);
 
   //returns _nodeNumber from CityNode
   unsigned int getCityNode(int node);
