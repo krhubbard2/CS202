@@ -32,7 +32,7 @@ double CityList::getCityLon(int node)
   return _cityList[node].getLongitudeX();
 }
 
-void CityList::printCityNode()
+void CityList::printAllCityNodes()
 {
   for (auto a : _cityList)
   {
@@ -40,6 +40,16 @@ void CityList::printCityNode()
          << " Lat: " << a.getLatitudeY() << " Lon: " << a.getLongitudeX()
          << endl;
   }
+}
+
+void CityList::printSpecCityNode(unsigned int node)
+{
+  /*Function assumes you typed in the node you want printed NOT the vector
+    position. Hence node-1 to take into account vector position [0]*/
+  cout << "City/File: " << getFileName() << " Node: "
+       << _cityList[node-1].getNodeNumber() << " Lat: "
+       << _cityList[node-1].getLatitudeY() << " Lon: "
+       << _cityList[node-1].getLongitudeX() << endl;
 }
 
 void CityList::setFileName(string name)

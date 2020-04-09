@@ -17,16 +17,35 @@ using std::vector;
 class CityList
 {
 public:
+  //Default Constructor
   CityList();
+
+  //Constructor automatically adding node to _cityList vector
   CityList(CityNode node);
 
+  //Adds node to _cityList vector
   void setCityNode(CityNode node);
-  void printCityNode();
+
+  //Prints whole _cityList vector
+  void printAllCityNodes();
+
+  /*Prints specific vector position of _cityList depending
+    on node you want printed*/
+  void printSpecCityNode(unsigned int node);
+
+  //Sets file/city name
   void setFileName(string name);
 
+  //returns _fileName
   string getFileName();
+
+  //returns _nodeNumber from CityNode
   unsigned int getCityNode(int node);
+
+  //returns  _latitude from CityNode
   double getCityLat(int node);
+
+  //returns _longitude from CityNode
   double getCityLon(int node);
 
 private:

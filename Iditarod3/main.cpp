@@ -130,11 +130,13 @@ int main(int argc, char** argv)
   CityList u;
   readTSP("u2152.tsp", node0, u);
 
-  brd.printCityNode();
-  fl.printCityNode();
-  fnl.printCityNode();
-  rl.printCityNode();
-  u.printCityNode();
+  brd.printAllCityNodes();
+  fl.printAllCityNodes();
+  fnl.printAllCityNodes();
+  rl.printAllCityNodes();
+  u.printAllCityNodes();
+
+  rl.printSpecCityNode(1300);
 
 
   return 0;
