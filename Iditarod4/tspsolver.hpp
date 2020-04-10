@@ -8,7 +8,12 @@
 
 class TspSolver
 {
+public:
+  void solveRandomly();
+  void solveGreedy();
+  void solveMyWay();
 
+private:
 
 
 
