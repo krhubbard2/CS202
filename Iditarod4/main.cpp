@@ -8,6 +8,8 @@ using std::cout;
 using std::endl;
 #include "citylist.hpp"
 #include "citynode.hpp"
+#include "citypath.hpp"
+#include "tspsolver.hpp"
 
 int main()
 {
