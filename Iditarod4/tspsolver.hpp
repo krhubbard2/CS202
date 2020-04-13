@@ -6,12 +6,19 @@
 #ifndef TSPSOLVER_HPP_
 #define TSPSOLVER_HPP_
 
+#include "citylist.hpp"
+#include "citypath.hpp"
+#include "citynode.hpp"
+#include <random>
+
+
 class TspSolver
 {
 public:
   void solveRandomly();
-  void solveGreedy();
+  void solveGreedy(CityList &list, CityPath &path);
   void solveMyWay();
+  unsigned int getRandInt(int low, int high);
 
 private:
 

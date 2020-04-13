@@ -16,6 +16,11 @@ void CityList::setCityNode(CityNode node)
   _cityList.push_back(node);
 }
 
+CityNode CityList::getCityNodeNode(int node)
+{
+  return _cityList[node];
+}
+
 unsigned int CityList::getCityNode(int node)
 {
   return _cityList[node-1].getNodeNumber();
@@ -75,4 +80,9 @@ double CityList::distance(int first, int second)
 
   return d;
 
+}
+
+int CityList::cityListSize()
+{
+  return _cityList.size();
 }

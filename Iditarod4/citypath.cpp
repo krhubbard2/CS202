@@ -18,3 +18,11 @@ void CityPath::setCityPath(CityNode node)
   int connection = node.getNodeNumber();
   _connections.push_back(connection);
 }
+
+void CityPath::printCityPath()
+{
+  for (auto a : _connections)
+  {
+    std::cout << a << std::endl;
+  }
+}

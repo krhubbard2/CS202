@@ -46,11 +46,16 @@ public:
   //returns _nodeNumber from CityNode
   unsigned int getCityNode(int node);
 
+  CityNode getCityNodeNode(int node);
+
   //returns  _latitude from CityNode
   double getCityLat(int node);
 
   //returns _longitude from CityNode
   double getCityLon(int node);
+
+  //Returns _cityList vector size (For use in TspSolver)
+  int cityListSize();
 
 private:
   vector<CityNode> _cityList;

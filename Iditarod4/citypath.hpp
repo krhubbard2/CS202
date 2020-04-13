@@ -5,6 +5,7 @@
 
 #ifndef CITYPATH_HPP_
 #define CITYPATH_HPP_
+#include <iostream>
 #include <vector>
 using std::vector;
 #include "citynode.hpp"
@@ -20,6 +21,10 @@ public:
 
   //Adds node to _cityList vector
   void setCityPath(CityNode node);
+
+  //Prints _connections to terminal
+  void printCityPath();
+
 
 private:
   //Stores optimal connections from city to city (vector<CityNode> _cityList)
