@@ -43,10 +43,8 @@ public:
   //Returns Euclidean distance between two cities (node 1 & node 2).
   double distance(int first, int second);
 
-  //returns _nodeNumber from CityNode
-  unsigned int getCityNode(int node);
-
-  CityNode getCityNodeNode(int node);
+  //Returns CityNode
+  CityNode getCityNode(int node);
 
   //returns  _latitude from CityNode
   double getCityLat(int node);

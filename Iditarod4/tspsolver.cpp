@@ -30,13 +30,15 @@ void TspSolver::solveRandomly()
 void TspSolver::solveGreedy(CityList& list, CityPath& path)
 {
   // Design
-  // [] Pick a random starting city -- add it to CityPath
+  // [X] Pick a random starting city -- add it to CityPath
   // [] While cities remain -- look for closest city add it to CityList
 
   //Set starting city
   int high = list.cityListSize();
   int startNode = getRandInt(0, high);
-  path.setCityPath(list.getCityNodeNode(startNode));
+  path.setCityPath(list.getCityNode(startNode));
+
+
 
   cout << "Solve Greedy path contains:\n";
   path.printCityPath();

@@ -16,14 +16,9 @@ void CityList::setCityNode(CityNode node)
   _cityList.push_back(node);
 }
 
-CityNode CityList::getCityNodeNode(int node)
+CityNode CityList::getCityNode(int node)
 {
   return _cityList[node];
-}
-
-unsigned int CityList::getCityNode(int node)
-{
-  return _cityList[node-1].getNodeNumber();
 }
 
 double CityList::getCityLat(int node)
