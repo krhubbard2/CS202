@@ -55,6 +55,14 @@ public:
   //Returns _cityList vector size (For use in TspSolver)
   int cityListSize();
 
+  //Returns _cityList [n] value as an int
+  int listVectorSpecific(int n);
+
+  int getCityNodeInt(int node);
+
+  //Removes node from _cityList (For use in TspSolver)
+  void removeCityList(int node);
+
 private:
   vector<CityNode> _cityList;
   string _fileName;

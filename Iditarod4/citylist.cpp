@@ -21,6 +21,11 @@ CityNode CityList::getCityNode(int node)
   return _cityList[node];
 }
 
+int CityList::getCityNodeInt(int node)
+{
+  return _cityList[node].getNodeNumber();
+}
+
 double CityList::getCityLat(int node)
 {
   return _cityList[node-1].getLatitudeY();
@@ -80,4 +85,14 @@ double CityList::distance(int first, int second)
 int CityList::cityListSize()
 {
   return _cityList.size();
+}
+
+int CityList::listVectorSpecific(int n)
+{
+  return _cityList[n].getNodeNumber();
+}
+
+void CityList::removeCityList(int node)
+{
+  _cityList.erase(_cityList.begin() + node);
 }

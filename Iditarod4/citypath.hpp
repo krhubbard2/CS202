@@ -25,6 +25,15 @@ public:
   //Prints _connections to terminal
   void printCityPath();
 
+  //Returns _connections vector size (For use in TspSolver)
+  int cityPathSize();
+
+  //Returns _connections [n] value
+  int pathVectorSpecific(int n);
+
+  //Remove last element in _connections (For use in TspSolver)
+  void popBackPath();
+
 
 private:
   //Stores optimal connections from city to city (vector<CityNode> _cityList)

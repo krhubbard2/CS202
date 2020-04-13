@@ -113,29 +113,32 @@ int main()
 
   CityNode node0(0, 0, 0);
 
-  //Make CityList for BRD14051
-  CityList brd;
-  readTSP("brd14051.tsp", node0, brd);
+  // //Make CityList for BRD14051
+  // CityList brd;
+  // readTSP("brd14051.tsp", node0, brd);
+  //
+  // //Make CityList for FL3795
+  // CityList fl;
+  // readTSP("fl3795.tsp", node0, fl);
+  //
+  // //Make CityList for FNL4461
+  // CityList fnl;
+  // readTSP("fnl4461.tsp", node0, fnl);
+  //
+  // //Make CityList for RL1304
+  // CityList rl;
+  // readTSP("rl1304.tsp", node0, rl);
+  //
+  // //Make CityList for U2152
+  // CityList u;
+  // readTSP("u2152.tsp", node0, u);
 
-  //Make CityList for FL3795
-  CityList fl;
-  readTSP("fl3795.tsp", node0, fl);
+  CityList test;
+  readTSP("test.tsp", node0, test);
 
-  //Make CityList for FNL4461
-  CityList fnl;
-  readTSP("fnl4461.tsp", node0, fnl);
-
-  //Make CityList for RL1304
-  CityList rl;
-  readTSP("rl1304.tsp", node0, rl);
-
-  //Make CityList for U2152
-  CityList u;
-  readTSP("u2152.tsp", node0, u);
-
-  CityPath uPath;
-  TspSolver uSolve;
-  uSolve.solveGreedy(u, uPath);
+  CityPath testPath;
+  TspSolver testSolve;
+  testSolve.solveGreedy(test, testPath);
 
 
 
