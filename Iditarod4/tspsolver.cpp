@@ -29,10 +29,6 @@ void TspSolver::solveRandomly()
 
 void TspSolver::solveGreedy(CityList& list)
 {
-  // Design
-  // [X] Pick a random starting city -- add it to CityPath
-  // [] While cities remain -- look for closest city add it to CityList
-
   CityPath marked;
   CityPath unmarked;
 
@@ -67,14 +63,16 @@ void TspSolver::solveGreedy(CityList& list)
       break;
     }
 
+    //Find closest city comparing all cities remaining (unmarked)
     for(int z = 0; z < unmarked.size(); z++)
     {
       if (dist > list.distance(marked.getPath(i), unmarked.getPath(z)))
       {
         dist = list.distance(marked.getPath(i), unmarked.getPath(z));
 
+        //Smallest city found
         smallest = unmarked.getPath(z);
-
+        //Delete the found city
         del = z;
       }
     }
