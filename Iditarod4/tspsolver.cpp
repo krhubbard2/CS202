@@ -17,7 +17,8 @@ void TspSolver::solveRandomly(CityList& list)
 {
   CityPath marked;
   CityPath unmarked;
-
+  vector<int> temp;
+  vector<int> final;
   //Fill unmarked path
   for (int i = 0; i < list.cityListSize(); i++)
   {
@@ -25,37 +26,67 @@ void TspSolver::solveRandomly(CityList& list)
   }
 
   //Starting distance
+  double dist = 0;
+
+  //Best Distance
   double bestDist = 0;
 
-  //Set starting city
-  int startNode = getRandInt(0, list.cityListSize() - 1);
-  //Add starting city to marked
-  marked.addPath(startNode);
-  //Delete starting city from unmarked
-  unmarked.deletePath(startNode);
+  //M times repeated -- Change m to whatever
+  int m = 1;
 
-  //While cities unmarked remain
-  while (unmarked.size() != 0)
+  for (int i = 0; i < m; i++)
   {
-    //Randomly connect cities
-    int startNode = getRandInt(0, unmarked.size() - 1);
-    marked.addPath(unmarked.getPath(startNode));
+    unmarked.deleteAllPaths();
+    //Fill unmarked path
+    for (int i = 0; i < list.cityListSize(); i++)
+    {
+      unmarked.addPath(i);
+    }
+    temp.clear();
+    //Set starting city
+    int startNode = getRandInt(0, list.cityListSize() - 1);
+    //Add starting city to temp
+    temp.push_back(startNode);
+    //Delete starting city from unmarked
     unmarked.deletePath(startNode);
-  }
 
-  //Starting city is also ending city
-  marked.addPath(marked.getPath(0));
+    //While cities unmarked remain
+    while (unmarked.size() != 0)
+    {
+      //Randomly connect cities
+      int startNode = getRandInt(0, unmarked.size() - 1);
+      temp.push_back(unmarked.getPath(startNode));
+      unmarked.deletePath(startNode);
+    }
+
+    //Starting city is also ending city
+    temp.push_back(temp[0]);
+
+    //Find distance traveled
+    for (auto i = 0; i < temp.size() - 1; i++)
+    {
+      dist += list.distance(temp[i], temp[i + 1]);
+    }
+
+    if (dist < bestDist)
+    {
+      bestDist = dist;
+      final = temp;
+    }
+  }
+  marked.set_connections(final);
+
 
   //Print out distance and path
   cout << "Path Traveled: ";
   for (auto i = 0; i < marked.size() - 1; i++)
   {
-    bestDist += list.distance(marked.getPath(i), marked.getPath(i + 1));
+    dist += list.distance(marked.getPath(i), marked.getPath(i + 1));
 
     cout << marked.getPath(i) << " ";
   }
   cout << marked.getPath(0) << endl;
-  cout << "Distance Traveled: " << bestDist << endl;
+  cout << "Distance Traveled: " << dist << endl;
 
 
 }
@@ -126,4 +157,26 @@ void TspSolver::solveGreedy(CityList& list)
   }
   cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
+}
+
+void TspSolver::solveMyWay(CityList& list)
+{
+  // Connect cities in node order (ending with starting node)
+  CityPath marked;
+
+  for (int i = 0; i < list.cityListSize(); i++)
+  {
+    marked.addPath(i);
+  }
+
+  int dist = 0;
+  cout << "Path traveled: ";
+  for (int i = 0; i < marked.size() - 1; i++)
+  {
+    dist += list.distance(marked.getPath(i), marked.getPath(i+1));
+    cout << marked.getPath(i) << " ";
+  }
+  cout << marked.getPath(marked.size() - 1) << endl;
+  cout << "Total distance: " << dist << endl;
+
 }

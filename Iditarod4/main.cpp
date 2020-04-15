@@ -110,37 +110,44 @@ void readTSP(string fileName, CityNode& node, CityList& city)
 
 int main()
 {
-
   CityNode node0(0, 0, 0);
 
-  // //Make CityList for BRD14051
-  // CityList brd;
-  // readTSP("brd14051.tsp", node0, brd);
-  //
-  // //Make CityList for FL3795
-  // CityList fl;
-  // readTSP("fl3795.tsp", node0, fl);
-  //
-  // //Make CityList for FNL4461
-  // CityList fnl;
-  // readTSP("fnl4461.tsp", node0, fnl);
-  //
-  // //Make CityList for RL1304
-  // CityList rl;
-  // readTSP("rl1304.tsp", node0, rl);
+  //Make CityList for BRD14051
+  CityList brd;
+  readTSP("brd14051.tsp", node0, brd);
 
+  //Make CityList for FL3795
+  CityList fl;
+  readTSP("fl3795.tsp", node0, fl);
+
+  //Make CityList for FNL4461
+  CityList fnl;
+  readTSP("fnl4461.tsp", node0, fnl);
+
+  //Make CityList for RL1304
+  CityList rl;
+  readTSP("rl1304.tsp", node0, rl);
 
   //Make CityList for U2152
   CityList u;
   readTSP("u2152.tsp", node0, u);
 
   CityList test;
-  readTSP("rl1304.tsp", node0, test);
+  readTSP("test.tsp", node0, test);
 
   TspSolver testSolve;
-  //testSolve.solveGreedy(test);
-  testSolve.solveRandomly(test);
-
+  cout << "**************************************************************\n"
+       << "*************** S O L V E  G R E E D Y ***********************\n"
+       << "**************************************************************\n";
+  //testSolve.solveGreedy(fl);
+  cout << "**************************************************************\n"
+       << "*************** S O L V E  R A N D O M L Y *******************\n"
+       << "**************************************************************\n";
+  //testSolve.solveRandomly(test);
+  cout << "**************************************************************\n"
+       << "*************** S O L V E  M Y W A Y *************************\n"
+       << "**************************************************************\n";
+  testSolve.solveMyWay(fl);
 
 
 

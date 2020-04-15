@@ -17,13 +17,21 @@ public:
 
   CityPath() : _size(0) {};
 
+  CityPath(CityPath &copy) {_connections = copy._connections;};
+
   int getPath(const int& n) const;
 
   void addPath(const int& n);
 
   void deletePath(const int& n);
 
+  void deleteAllPaths();
+
   int size() const { return _connections.size(); }
+
+  vector<int> get_connections();
+
+  void set_connections(vector<int>& vec);
 
 private:
   //Stores optimal connections from city to city (vector<CityNode> _cityList)

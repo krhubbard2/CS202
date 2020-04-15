@@ -21,7 +21,22 @@ void CityPath::deletePath(const int& n)
 	_connections.erase(_connections.begin() + n);
 }
 
+void CityPath::deleteAllPaths()
+{
+  _connections.clear();
+}
+
 int CityPath::getPath(const int& n) const
 {
   return _connections[n];
+}
+
+vector<int> CityPath::get_connections()
+{
+  return _connections;
+}
+
+void CityPath::set_connections(vector<int>& vec)
+{
+  _connections = vec;
 }
