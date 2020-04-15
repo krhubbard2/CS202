@@ -1,6 +1,6 @@
 // Kelby Hubbard
 // CS202
-// March 29, 2020
+// April 10, 2020
 // Iditarod Challenge #3
 #ifndef CITYLIST_HPP_
 #define CITYLIST_HPP_
@@ -43,14 +43,25 @@ public:
   //Returns Euclidean distance between two cities (node 1 & node 2).
   double distance(int first, int second);
 
-  //returns _nodeNumber from CityNode
-  unsigned int getCityNode(int node);
+  //Returns CityNode
+  CityNode getCityNode(int node);
 
   //returns  _latitude from CityNode
   double getCityLat(int node);
 
   //returns _longitude from CityNode
   double getCityLon(int node);
+
+  //Returns _cityList vector size (For use in TspSolver)
+  int cityListSize();
+
+  //Returns _cityList [n] value as an int
+  int listVectorSpecific(int n);
+
+  int getCityNodeInt(int node);
+
+  //Removes node from _cityList (For use in TspSolver)
+  void removeCityList(int node);
 
 private:
   vector<CityNode> _cityList;

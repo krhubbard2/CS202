@@ -1,6 +1,6 @@
 // Kelby Hubbard
 // CS202
-// March 29, 2020
+// April 10, 2020
 // Iditarod Challenge #3
 #include "citylist.hpp"
 
@@ -16,19 +16,24 @@ void CityList::setCityNode(CityNode node)
   _cityList.push_back(node);
 }
 
-unsigned int CityList::getCityNode(int node)
+CityNode CityList::getCityNode(int node)
 {
-  return _cityList[node-1].getNodeNumber();
+  return _cityList[node];
+}
+
+int CityList::getCityNodeInt(int node)
+{
+  return _cityList[node].getNodeNumber();
 }
 
 double CityList::getCityLat(int node)
 {
-  return _cityList[node-1].getLatitudeY();
+  return _cityList[node].getLatitudeY();
 }
 
 double CityList::getCityLon(int node)
 {
-  return _cityList[node-1].getLongitudeX();
+  return _cityList[node].getLongitudeX();
 }
 
 void CityList::printAllCityNodes()
@@ -75,4 +80,19 @@ double CityList::distance(int first, int second)
 
   return d;
 
+}
+
+int CityList::cityListSize()
+{
+  return _cityList.size();
+}
+
+int CityList::listVectorSpecific(int n)
+{
+  return _cityList[n].getNodeNumber();
+}
+
+void CityList::removeCityList(int node)
+{
+  _cityList.erase(_cityList.begin() + node);
 }
