@@ -5,39 +5,23 @@
 
 #include "citypath.hpp"
 
-CityPath::CityPath() {}
+CityPath::CityPath(const int& s) : _size(s) {}
 
-CityPath::CityPath(CityNode node)
+void CityPath::addPath(const int& n)
 {
-  int connection = node.getNodeNumber();
-  _connections.push_back(connection);
+  _connections.push_back(n);
 }
 
-void CityPath::setCityPath(CityNode node)
+void CityPath::deletePath(const int& n)
 {
-  int connection = node.getNodeNumber();
-  _connections.push_back(connection);
+  if (_connections.size() == 1) {
+		_connections.erase(_connections.begin());
+		return;
+	}
+	_connections.erase(_connections.begin() + n);
 }
 
-void CityPath::printCityPath()
-{
-  for (auto a : _connections)
-  {
-    std::cout << a << std::endl;
-  }
-}
-
-int CityPath::cityPathSize()
-{
-  return _connections.size();
-}
-
-int CityPath::pathVectorSpecific(int n)
+int CityPath::getPath(const int& n) const
 {
   return _connections[n];
-}
-
-void CityPath::popBackPath()
-{
-  _connections.pop_back();
 }

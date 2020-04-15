@@ -13,34 +13,23 @@ using std::vector;
 class CityPath
 {
 public:
-  //Default Constructor
-  CityPath ();
+  CityPath(const int& s);
 
-  //Constructor automatically adding node to _connections vector
-  CityPath(CityNode node);
+  CityPath() : _size(0) {};
 
-  //Adds node to _cityList vector
-  void setCityPath(CityNode node);
+  int getPath(const int& n) const;
 
-  //Prints _connections to terminal
-  void printCityPath();
+  void addPath(const int& n);
 
-  //Returns _connections vector size (For use in TspSolver)
-  int cityPathSize();
+  void deletePath(const int& n);
 
-  //Returns _connections [n] value
-  int pathVectorSpecific(int n);
-
-  //Remove last element in _connections (For use in TspSolver)
-  void popBackPath();
-
+  int size() const { return _connections.size(); }
 
 private:
   //Stores optimal connections from city to city (vector<CityNode> _cityList)
   vector<int> _connections;
 
-
-
+  int _size;
 };
 
 

@@ -16,7 +16,7 @@ class TspSolver
 {
 public:
   void solveRandomly();
-  void solveGreedy(CityList &list, CityPath &path);
+  void solveGreedy(CityList &list);
   void solveMyWay();
   unsigned int getRandInt(int low, int high);
 

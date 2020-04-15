@@ -128,17 +128,17 @@ int main()
   // //Make CityList for RL1304
   // CityList rl;
   // readTSP("rl1304.tsp", node0, rl);
-  //
-  // //Make CityList for U2152
-  // CityList u;
-  // readTSP("u2152.tsp", node0, u);
 
-  CityList test;
-  readTSP("test.tsp", node0, test);
 
-  CityPath testPath;
-  TspSolver testSolve;
-  testSolve.solveGreedy(test, testPath);
+  //Make CityList for U2152
+  CityList u;
+  readTSP("u2152.tsp", node0, u);
+
+  //CityList test;
+  //readTSP("test.tsp", node0, u);
+
+  // TspSolver testSolve;
+  // testSolve.solveGreedy(test);
 
 
 
