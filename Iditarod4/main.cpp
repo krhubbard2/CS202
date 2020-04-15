@@ -135,10 +135,11 @@ int main()
   readTSP("u2152.tsp", node0, u);
 
   CityList test;
-  readTSP("u2152.tsp", node0, test);
+  readTSP("rl1304.tsp", node0, test);
 
   TspSolver testSolve;
-  testSolve.solveGreedy(test);
+  //testSolve.solveGreedy(test);
+  testSolve.solveRandomly(test);
 
 
 
