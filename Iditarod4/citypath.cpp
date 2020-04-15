@@ -7,6 +7,11 @@
 
 CityPath::CityPath(const int& s) : _size(s) {}
 
+int CityPath::cityPathSize()
+{
+  return _connections.size();
+}
+
 void CityPath::addPath(const int& n)
 {
   _connections.push_back(n);
@@ -36,7 +41,10 @@ vector<int> CityPath::get_connections()
   return _connections;
 }
 
-void CityPath::set_connections(vector<int>& vec)
+void CityPath::setConnections(vector<int>& vec)
 {
-  _connections = vec;
+  for (auto a : vec)
+  {
+    _connections.push_back(a);
+  }
 }

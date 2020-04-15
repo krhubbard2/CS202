@@ -18,24 +18,21 @@ void TspSolver::solveRandomly(CityList& list)
   CityPath marked;
   CityPath unmarked;
   vector<int> temp;
-  vector<int> final;
-  //Fill unmarked path
-  for (int i = 0; i < list.cityListSize(); i++)
-  {
-    unmarked.addPath(i);
-  }
+  vector<int> finalVec;
 
   //Starting distance
   double dist = 0;
 
   //Best Distance
-  double bestDist = 0;
+  double bestDist = 1e12;
 
   //M times repeated -- Change m to whatever
-  int m = 1;
+  int m = 10;
 
   for (int i = 0; i < m; i++)
   {
+    temp.clear();
+    dist = 0;
     unmarked.deleteAllPaths();
     //Fill unmarked path
     for (int i = 0; i < list.cityListSize(); i++)
@@ -71,24 +68,20 @@ void TspSolver::solveRandomly(CityList& list)
     if (dist < bestDist)
     {
       bestDist = dist;
-      final = temp;
+      finalVec = temp;
     }
   }
-  marked.set_connections(final);
 
-
-  //Print out distance and path
-  cout << "Path Traveled: ";
-  for (auto i = 0; i < marked.size() - 1; i++)
+  marked.setConnections(finalVec);
+  dist = 0;
+  cout << "Path traveled: ";
+  for (int i = 0; i < marked.size() - 1; i++)
   {
-    dist += list.distance(marked.getPath(i), marked.getPath(i + 1));
-
+    dist += list.distance(marked.getPath(i), marked.getPath(i+1));
     cout << marked.getPath(i) << " ";
   }
-  cout << marked.getPath(0) << endl;
-  cout << "Distance Traveled: " << dist << endl;
-
-
+  cout << marked.getPath(marked.size() - 1) << endl;
+  cout << "Total distance: " << dist << endl;
 }
 
 void TspSolver::solveGreedy(CityList& list)
@@ -128,7 +121,7 @@ void TspSolver::solveGreedy(CityList& list)
     }
 
     //Find closest city comparing all cities remaining (unmarked)
-    for(int z = 0; z < unmarked.size(); z++)
+    for(auto z = 0; z < unmarked.cityPathSize(); z++)
     {
       if (dist > list.distance(marked.getPath(i), unmarked.getPath(z)))
       {

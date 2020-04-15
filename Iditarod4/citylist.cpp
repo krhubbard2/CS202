@@ -28,12 +28,12 @@ int CityList::getCityNodeInt(int node)
 
 double CityList::getCityLat(int node)
 {
-  return _cityList[node-1].getLatitudeY();
+  return _cityList[node].getLatitudeY();
 }
 
 double CityList::getCityLon(int node)
 {
-  return _cityList[node-1].getLongitudeX();
+  return _cityList[node].getLongitudeX();
 }
 
 void CityList::printAllCityNodes()

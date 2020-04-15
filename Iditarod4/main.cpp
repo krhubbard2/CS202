@@ -132,22 +132,19 @@ int main()
   CityList u;
   readTSP("u2152.tsp", node0, u);
 
-  CityList test;
-  readTSP("test.tsp", node0, test);
-
   TspSolver testSolve;
   cout << "**************************************************************\n"
        << "*************** S O L V E  G R E E D Y ***********************\n"
        << "**************************************************************\n";
-  //testSolve.solveGreedy(fl);
+  testSolve.solveGreedy(brd);
   cout << "**************************************************************\n"
        << "*************** S O L V E  R A N D O M L Y *******************\n"
        << "**************************************************************\n";
-  //testSolve.solveRandomly(test);
+  testSolve.solveRandomly(brd);
   cout << "**************************************************************\n"
        << "*************** S O L V E  M Y W A Y *************************\n"
        << "**************************************************************\n";
-  testSolve.solveMyWay(fl);
+  testSolve.solveMyWay(brd);
 
 
 
