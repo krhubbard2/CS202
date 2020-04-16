@@ -10,15 +10,18 @@ using std::endl;
 using std::string;
 
 // [X] Write wrapper template class
-// [] Get friend to work with operator<<
+// [X] Get friend to work with operator<<
 
 template <typename WrapType>
 class Wrapper{
 public:
   Wrapper(const WrapType& obj) : _obj(obj) {}
 
-//private:
+private:
   WrapType _obj;
+
+  template <typename T>
+  friend std::ostream& operator<<(std::ostream& os, const Wrapper<T>& w);
 };
 
 template <typename T>
