@@ -9,7 +9,7 @@ using std::cout;
 
 // [X] Write Base class with two methods (one virtual)
 // [X] Write a Derived class with two methods (one virtual)
-// [] Test base class pointer to base class object
+// [X] Test base class pointer to base class object
 // [] Test base class pointer to derived class object
 // [] Test derived class pointer to derived class object
 // [] Test base class reference to base class object
@@ -34,6 +34,13 @@ public:
   virtual void functionB() { cout << "Derived::functionB() virtual\n"; }
 };
 
+void testBaseClassPointer() {
+  Base b;
+  Base* pb = &b;
+  pb->functionA();
+  pb->functionB();
+}
+
 void dashednewline(){
   cout << "--------------------\n";
 }
@@ -46,6 +53,8 @@ int main(int argc, char** argv)
   { Derived d; d.functionA(); d.functionB();}
   dashednewline();
 
+  testBaseClassPointer();
+  dashednewline();
 
   return 0;
 }
