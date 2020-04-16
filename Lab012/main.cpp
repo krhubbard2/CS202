@@ -12,7 +12,7 @@ using std::cout;
 // [X] Test base class pointer to base class object
 // [X] Test base class pointer to derived class object
 // [X] Test derived class pointer to derived class object
-// [] Test base class reference to base class object
+// [X] Test base class reference to base class object
 // [] Test base class reference to derived object
 // [] Test derived class reference to derived class object
 
@@ -51,8 +51,16 @@ void testBaseClassPointer() {
   }
 }
 
+void testBaseClassReferences(){
+  Base b;
+  { Base& bb = b;
+  b.functionA();
+  b.functionB();
+  }
+}
+
 void dashednewline(){
-  cout << "--------------------\n";
+  cout << "-------------------------\n";
 }
 
 int main(int argc, char** argv)
@@ -64,6 +72,9 @@ int main(int argc, char** argv)
   dashednewline();
 
   testBaseClassPointer();
+  dashednewline();
+
+  testBaseClassReferences();
   dashednewline();
 
   return 0;
