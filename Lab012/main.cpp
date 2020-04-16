@@ -13,7 +13,7 @@ using std::cout;
 // [X] Test base class pointer to derived class object
 // [X] Test derived class pointer to derived class object
 // [X] Test base class reference to base class object
-// [] Test base class reference to derived object
+// [X] Test base class reference to derived object
 // [] Test derived class reference to derived class object
 
 class Base{
@@ -54,8 +54,13 @@ void testBaseClassPointer() {
 void testBaseClassReferences(){
   Base b;
   { Base& bb = b;
-  b.functionA();
-  b.functionB();
+  bb.functionA();
+  bb.functionB();
+  }
+  Derived d;
+  { Base& bb = d;
+  bb.functionA();
+  bb.functionB();
   }
 }
 
