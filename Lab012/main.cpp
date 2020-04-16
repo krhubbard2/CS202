@@ -14,7 +14,7 @@ using std::cout;
 // [X] Test derived class pointer to derived class object
 // [X] Test base class reference to base class object
 // [X] Test base class reference to derived object
-// [] Test derived class reference to derived class object
+// [X] Test derived class reference to derived class object
 
 class Base{
 public:
@@ -61,6 +61,10 @@ void testBaseClassReferences(){
   { Base& bb = d;
   bb.functionA();
   bb.functionB();
+  }
+  { Derived& dd = d;
+  dd.functionA();
+  dd.functionB();
   }
 }
 
