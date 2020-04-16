@@ -11,7 +11,7 @@ using std::cout;
 // [X] Write a Derived class with two methods (one virtual)
 // [X] Test base class pointer to base class object
 // [X] Test base class pointer to derived class object
-// [] Test derived class pointer to derived class object
+// [X] Test derived class pointer to derived class object
 // [] Test base class reference to base class object
 // [] Test base class reference to derived object
 // [] Test derived class reference to derived class object
@@ -44,6 +44,10 @@ void testBaseClassPointer() {
   { Base* pb = &d;
   pb->functionA();
   pb->functionB();
+  }
+  {Derived* pd = &d;
+  pd->functionA();
+  pd->functionB();
   }
 }
 
