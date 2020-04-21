@@ -73,13 +73,13 @@ void TspSolver::solveRandomly(CityList& list, CityPath& marked)
 
   marked.setConnections(finalVec);
   dist = 0;
-  cout << "Path traveled: ";
+  //cout << "Path traveled: ";
   for (int i = 0; i < marked.size() - 1; i++)
   {
     dist += list.distance(marked.getPath(i), marked.getPath(i+1));
-    cout << marked.getPath(i) << " ";
+    //cout << marked.getPath(i) << " ";
   }
-  cout << marked.getPath(marked.size() - 1) << endl;
+  //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
 }
 
@@ -140,13 +140,13 @@ void TspSolver::solveGreedy(CityList& list, CityPath& marked)
   marked.addPath(marked.getPath(0));
 
   dist = 0;
-  cout << "Path traveled: ";
+  //cout << "Path traveled: ";
   for (int i = 0; i < marked.size() - 1; i++)
   {
     dist += list.distance(marked.getPath(i), marked.getPath(i+1));
-    cout << marked.getPath(i) << " ";
+    //cout << marked.getPath(i) << " ";
   }
-  cout << marked.getPath(marked.size() - 1) << endl;
+  //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
 }
 
@@ -160,13 +160,13 @@ void TspSolver::solveMyWay(CityList& list, CityPath& marked)
   }
 
   int dist = 0;
-  cout << "Path traveled: ";
+  //cout << "Path traveled: ";
   for (int i = 0; i < marked.size() - 1; i++)
   {
     dist += list.distance(marked.getPath(i), marked.getPath(i+1));
-    cout << marked.getPath(i) << " ";
+    //cout << marked.getPath(i) << " ";
   }
-  cout << marked.getPath(marked.size() - 1) << endl;
+  //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
 
 }
