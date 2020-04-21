@@ -187,7 +187,7 @@ int main(int argc, char** argv){
 
 
   // Make CityList for USA13509
-  cout << "CITY: USA13509\n";
+  cout << "CITY: USA\n";
   CityList us;
   readTSP("usa13509.tsp", node0, us);
   CityPath svgus;

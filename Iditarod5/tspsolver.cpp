@@ -26,7 +26,7 @@ void TspSolver::solveRandomly(CityList& list, CityPath& marked)
   double bestDist = 1e12;
 
   //M times repeated -- Change m to whatever
-  int m = 10;
+  int m = 100;
 
   for (int i = 0; i < m; i++)
   {
