@@ -108,12 +108,17 @@ void readTSP(string fileName, CityNode& node, CityList& city)
   }
 }
 
+void newline(){
+  cout << "--------------------------------\n";
+}
+
 int main(int argc, char** argv){
 
   CityNode node0(0, 0, 0);
   TspSolver solve;
 
   //Make CityList for FL3795
+  cout << "CITY: FL3795\n";
   CityList fl;
   readTSP("fl3795.tsp", node0, fl);
   CityPath svgfl;
@@ -127,7 +132,10 @@ int main(int argc, char** argv){
   cout << "Generating MyWay SVG Output\n";
   svgGraph(fl, svgfl, "fl3795MyWayOutput.svg");
 
+  newline();
+
   //Make CityList for FNL4461
+  cout << "CITY: FNL4461\n";
   CityList fnl;
   readTSP("fnl4461.tsp", node0, fnl);
   CityPath svgfnl;
@@ -141,7 +149,10 @@ int main(int argc, char** argv){
   cout << "Generating MyWay SVG Output\n";
   svgGraph(fnl, svgfnl, "fnl14461MyWayOutput.svg");
 
+    newline();
+
   //Make CityList for U2152
+  cout << "CITY: U2152\n";
   CityList u;
   readTSP("u2152.tsp", node0, u);
   CityPath svgu;
@@ -155,7 +166,10 @@ int main(int argc, char** argv){
   cout << "Generating MyWay SVG Output\n";
   svgGraph(u, svgu, "u2152MyWayOutput.svg");
 
+    newline();
+
   //Make CityList for RL1304
+  cout << "CITY: RL1304\n";
   CityList rl;
   readTSP("rl1304.tsp", node0, rl);
   CityPath svgrl;
@@ -169,8 +183,11 @@ int main(int argc, char** argv){
   cout << "Generating MyWay SVG Output\n";
   svgGraph(rl, svgrl, "rl1304MyWayOutput.svg");
 
+    newline();
+
 
   // Make CityList for USA13509
+  cout << "CITY: USA13509\n";
   CityList us;
   readTSP("usa13509.tsp", node0, us);
   CityPath svgus;
@@ -183,11 +200,6 @@ int main(int argc, char** argv){
   solve.solveMyWay(us, svgus);
   cout << "Generating MyWay SVG Output\n";
   svgGraph(us, svgus, "us13509MyWayOutput.svg");
-
-
-
-
-
 
   return 0;
 }
