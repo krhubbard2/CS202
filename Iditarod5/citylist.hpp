@@ -63,6 +63,14 @@ public:
   //Removes node from _cityList (For use in TspSolver)
   void removeCityList(int node);
 
+  double minX();
+
+  double maxX();
+
+  double minY();
+
+  double maxY();
+
 private:
   vector<CityNode> _cityList;
   string _fileName;
