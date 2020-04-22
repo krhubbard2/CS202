@@ -118,11 +118,8 @@ void svgGraph(CityList &list, CityPath &path, string outputName){
         dot += std::to_string(startY);
         dot += "\" style=\"stroke:rgb(255,0,0);stroke-width:1\" />\n";
 
-        line = "</svg:svg>\n <svg:svg width=\"2250px\" height=\"2500px\">\n";
-        line += "</svg:svg>\n </body>\n </html>";
-        svgOut << dot << line;
-
-
-
+        dot += "</svg:svg>\n <svg:svg width=\"2250px\" height=\"2500px\">\n";
+        dot += "</svg:svg>\n </body>\n </html>";
+        svgOut << dot;
   }
 }
