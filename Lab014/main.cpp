@@ -9,8 +9,8 @@ using std::endl;
 #include <string>
 using std::string;
 
-// [] Write function template 'twice'
-// [] Test with int and double
+// [X] Write function template 'twice'
+// [X] Test with int and double
 // [] Test with a C++ string
 // [] Test with a C string
 
