@@ -11,7 +11,7 @@ using std::string;
 
 // [X] Write function template 'twice'
 // [X] Test with int and double
-// [] Test with a C++ string
+// [X] Test with a C++ string
 // [] Test with a C string
 
 template <typename T>
@@ -22,7 +22,7 @@ T twice(const T& x){
 int main(int argc, char** argv){
   cout << twice(2) << endl;
   cout << twice(2.3) << endl;
-
+  cout << twice(string("Hello")) << endl;
 
 
 
