@@ -120,6 +120,10 @@ int main(int argc, char** argv){
 CityNode node0(0, 0, 0);
 TspSolver solve;
 CityList list;
+CityPath path;
+// readTSP("fnl4461.tsp", node0, list);
+// CityPath svgfnl;
+// solve.solveGreedy(fnl, svgfnl);
 
 
 // Main Window
@@ -139,6 +143,7 @@ Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
 // Greedy Button
 { Fl_Button* greedyButton
         = new Fl_Button(55, 480, 180, 45, "Greedy");
+greedyButton->callback(greedy, (void*) &userFile);
 }
 
 // Random Button

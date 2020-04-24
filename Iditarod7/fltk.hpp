@@ -15,12 +15,18 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+#include <string>
+using std::string;
+#include <sstream>
+using std::istringstream;
 
 void open(Fl_Widget* w, void* data);
 void quit(Fl_Widget* w, void* data);
 void help(Fl_Widget* w, void* data);
 void quitProgram(Fl_Widget* w, void* data);
-
+void greedy(Fl_Widget* w, void* data);
+Fl_Input* fileChoice = nullptr;
+string userFile;
 
 
 

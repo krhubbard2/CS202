@@ -8,8 +8,8 @@
 void open(Fl_Widget* w, void* data){
   // Create the file chooser, and show it
   Fl_File_Chooser chooser(".",                        // directory
-                          "*",                        // filter
-                          Fl_File_Chooser::MULTI,     // chooser type
+                          "*.tsp",                        // filter
+                          Fl_File_Chooser::SINGLE,     // chooser type
                           "Title Of Chooser");        // title
   chooser.show();
 
@@ -29,12 +29,10 @@ void open(Fl_Widget* w, void* data){
   fprintf(stderr, "    VALUE: '%s'\n", chooser.value());
   fprintf(stderr, "    COUNT: %d files selected\n", chooser.count());
 
-  // Multiple files? Show all of them
-  if ( chooser.count() > 1 ) {
-      for ( int t=1; t<=chooser.count(); t++ ) {
-          fprintf(stderr, " VALUE[%d]: '%s'\n", t, chooser.value(t));
-      }
-  }
+  string choice = fileChoice->value();
+  std::istringstream is(choice);
+  is >> userFile;
+
 }
 
 //Exits program
@@ -56,4 +54,8 @@ void quit(Fl_Widget* w, void* data){
 
 void help(Fl_Widget* w, void* data){
   cout << "help\n";
+}
+
+void greedy(Fl_Widget* w, void* data, void* data1){
+  readTSP(userFile, node0, list);
 }
