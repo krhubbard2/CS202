@@ -20,116 +20,15 @@ using std::istringstream;
 #include "fltk.hpp"
 
 
-
-void readTSP(string fileName, CityNode& node, CityList& city)
-{
-  ifstream ifile(fileName);
-  //Throw error if it can't open file
-  if (!ifile)
-  {
-    cout << "Couldn't open file." << endl;
-  }
-  else
-  {
-    city.setFileName(fileName);
-    string line;
-    bool loop = true;
-
-    while (loop)
-    {
-      //If reading file hits an error or EOF
-      if (!ifile)
-      {
-        if (ifile.eof())
-        {
-          loop = false;
-        }
-        else
-        {
-          loop = true;
-        }
-      }
-      //If file opens correctly
-      else
-      {
-        getline(ifile, line);
-        string nodeStart = "NODE_COORD_SECTION";
-
-        //Start of node listings
-        if (line == nodeStart)
-        {
-          bool loop1 = true;
-          while(loop1)
-          {
-            //If reading file hits EOF
-            if (line == "EOF")
-            {
-              loop1 = false;
-              loop = false;
-            }
-            else
-            {
-              loop1 = true;
-            }
-            getline(ifile, line);
-
-            //Ensure line is an int (node / info)
-            istringstream iss(line);
-            int val;
-            iss >> val;
-            if(iss)
-            {
-              istringstream iss1(line);
-              //Grab each section of string
-              for (int i = 0; i < 3; i++)
-              {
-                double val1;
-
-                iss1 >> val1;
-                //Node number
-                if (i == 0)
-                {
-                  node.setNodeNumber(val1);
-                }
-                //Latitude
-                else if (i == 1)
-                {
-                  node.setLatitudeY(val1);
-                }
-                //Longitude
-                else if (i == 2)
-                {
-                  node.setLongitudeX(val1);
-                }
-              }
-              city.setCityNode(node);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 void newline(){
   cout << "--------------------------------\n";
 }
 
 int main(int argc, char** argv){
-//General Class declerations needed
-CityNode node0(0, 0, 0);
-TspSolver solve;
-CityList list;
-CityPath path;
-// readTSP("fnl4461.tsp", node0, list);
-// CityPath svgfnl;
-// solve.solveGreedy(fnl, svgfnl);
-
-
 // Main Window
 Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
 
-// Drop Down Menu Bar
+// Drop Down Menu Bar Child 0
 { Fl_Menu_Bar* menuBar
 		= new Fl_Menu_Bar(0, 0, 85, 25);
 	//When selected runs "open()" in fltk.cpp
@@ -140,31 +39,36 @@ Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
 	menuBar->add("Help/Help", FL_CTRL + 'h', help);
 }
 
-// Greedy Button
+// Greedy Button Child 1
 { Fl_Button* greedyButton
         = new Fl_Button(55, 480, 180, 45, "Greedy");
-greedyButton->callback(greedy, (void*) &userFile);
+greedyButton->callback(greedy);
 }
 
-// Random Button
+// Random Button Child 2
 { Fl_Button* randomButton
         = new Fl_Button(325, 480, 180, 45, "Random");
 }
 
-// MyWay Button
+// MyWay Button Child 3
 { Fl_Button* myWayButton
         = new Fl_Button(585, 480, 180, 45, "MyWay");
 }
 
-// Import Button
+// Import Button Child 4
 { Fl_Button* importButton
         = new Fl_Button(280, 215, 280, 70, "Import TSLIB");
 importButton->callback(open);
 }
 
-// TotalDistance Output
-{ Fl_Output* output
+// Total Distance Output Child 5
+{ Fl_Output* distanceOutput
         = new Fl_Output(330, 390, 175, 55, "Total Distance Traveled:");
+}
+
+// File Selected Output Child 6
+{ Fl_Output* fileOutput
+        = new Fl_Output(220, 310, 425, 35, "File Selected:");
 }
 
 

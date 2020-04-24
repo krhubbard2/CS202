@@ -82,3 +82,93 @@ void svgGraph(CityList &list, CityPath &path, string outputName){
     svgOut << line;
   }
 }
+
+void readTSP(string fileName, CityNode& node, CityList& city)
+{
+  ifstream ifile(fileName);
+  //Throw error if it can't open file
+  if (!ifile)
+  {
+    cout << "Couldn't open file." << endl;
+  }
+  else
+  {
+    city.setFileName(fileName);
+    string line;
+    bool loop = true;
+
+    while (loop)
+    {
+      //If reading file hits an error or EOF
+      if (!ifile)
+      {
+        if (ifile.eof())
+        {
+          loop = false;
+        }
+        else
+        {
+          loop = true;
+        }
+      }
+      //If file opens correctly
+      else
+      {
+        getline(ifile, line);
+        string nodeStart = "NODE_COORD_SECTION";
+
+        //Start of node listings
+        if (line == nodeStart)
+        {
+          bool loop1 = true;
+          while(loop1)
+          {
+            //If reading file hits EOF
+            if (line == "EOF")
+            {
+              loop1 = false;
+              loop = false;
+            }
+            else
+            {
+              loop1 = true;
+            }
+            getline(ifile, line);
+
+            //Ensure line is an int (node / info)
+            istringstream iss(line);
+            int val;
+            iss >> val;
+            if(iss)
+            {
+              istringstream iss1(line);
+              //Grab each section of string
+              for (int i = 0; i < 3; i++)
+              {
+                double val1;
+
+                iss1 >> val1;
+                //Node number
+                if (i == 0)
+                {
+                  node.setNodeNumber(val1);
+                }
+                //Latitude
+                else if (i == 1)
+                {
+                  node.setLatitudeY(val1);
+                }
+                //Longitude
+                else if (i == 2)
+                {
+                  node.setLongitudeX(val1);
+                }
+              }
+              city.setCityNode(node);
+            }
+          }
+        }
+      }
+    }
+  }
+}

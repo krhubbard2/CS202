@@ -83,7 +83,7 @@ void TspSolver::solveRandomly(CityList& list, CityPath& marked)
   cout << "Total distance: " << dist << endl;
 }
 
-void TspSolver::solveGreedy(CityList& list, CityPath& marked)
+double TspSolver::solveGreedy(CityList& list, CityPath& marked)
 {
   CityPath unmarked;
 
@@ -148,6 +148,9 @@ void TspSolver::solveGreedy(CityList& list, CityPath& marked)
   }
   //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
+
+  return dist;
+
 }
 
 void TspSolver::solveMyWay(CityList& list, CityPath& marked)

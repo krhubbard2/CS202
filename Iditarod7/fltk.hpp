@@ -12,6 +12,7 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/Fl_File_Chooser.H>
+#include <FL/Fl_Input.H>
 #include <iostream>
 using std::cout;
 using std::endl;
@@ -19,14 +20,16 @@ using std::endl;
 using std::string;
 #include <sstream>
 using std::istringstream;
+#include "citynode.hpp"
+#include "citylist.hpp"
+#include "svg.hpp"
+#include "tspsolver.hpp"
 
 void open(Fl_Widget* w, void* data);
 void quit(Fl_Widget* w, void* data);
 void help(Fl_Widget* w, void* data);
 void quitProgram(Fl_Widget* w, void* data);
 void greedy(Fl_Widget* w, void* data);
-Fl_Input* fileChoice = nullptr;
-string userFile;
 
 
 

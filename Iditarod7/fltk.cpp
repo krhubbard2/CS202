@@ -5,6 +5,9 @@
 
 #include "fltk.hpp"
 
+Fl_Input* fileChoice = nullptr;
+string userFile = "";
+
 void open(Fl_Widget* w, void* data){
   // Create the file chooser, and show it
   Fl_File_Chooser chooser(".",                        // directory
@@ -29,9 +32,13 @@ void open(Fl_Widget* w, void* data){
   fprintf(stderr, "    VALUE: '%s'\n", chooser.value());
   fprintf(stderr, "    COUNT: %d files selected\n", chooser.count());
 
-  string choice = fileChoice->value();
+  string choice = chooser.value();
   std::istringstream is(choice);
   is >> userFile;
+
+  Fl_Button* b = (Fl_Button*) w;
+  Fl_Output * o = (Fl_Output*)b->parent()->child(6);
+  o->value(userFile.c_str());
 
 }
 
@@ -56,6 +63,20 @@ void help(Fl_Widget* w, void* data){
   cout << "help\n";
 }
 
-void greedy(Fl_Widget* w, void* data, void* data1){
-  readTSP(userFile, node0, list);
+void greedy(Fl_Widget* w, void* data){
+  string input = userFile;
+  if (input != ""){
+    CityNode node(0,0,0);
+    CityList list;
+    readTSP(input, node, list);
+    CityPath path;
+    TspSolver solve;
+    // solve.solveGreedy(list, path);
+
+
+    Fl_Button* b = (Fl_Button*) w;
+    Fl_Output * o = (Fl_Output*)b->parent()->child(5);
+    string distance = std::to_string(solve.solveGreedy(list, path));
+    o->value(distance.c_str());
+  }
 }

@@ -10,13 +10,14 @@
 #include "citypath.hpp"
 #include "citynode.hpp"
 #include <random>
+#include "fltk.hpp"
 
 
 class TspSolver
 {
 public:
   void solveRandomly(CityList& list, CityPath& path);
-  void solveGreedy(CityList& list, CityPath& path);
+  double solveGreedy(CityList& list, CityPath& path);
   void solveMyWay(CityList& list, CityPath& path);
   unsigned int getRandInt(int low, int high);
 
