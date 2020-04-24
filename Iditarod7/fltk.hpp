@@ -30,7 +30,8 @@ void quit(Fl_Widget* w, void* data);
 void help(Fl_Widget* w, void* data);
 void quitProgram(Fl_Widget* w, void* data);
 void greedy(Fl_Widget* w, void* data);
-
+void random(Fl_Widget* w, void* data);
+void myWay(Fl_Widget* w, void* data);
 
 
 #endif

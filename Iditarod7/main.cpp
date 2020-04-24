@@ -48,6 +48,7 @@ greedyButton->callback(greedy);
 // Random Button Child 2
 { Fl_Button* randomButton
         = new Fl_Button(325, 480, 180, 45, "Random");
+randomButton->callback(random);
 }
 
 // MyWay Button Child 3

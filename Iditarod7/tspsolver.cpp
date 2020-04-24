@@ -13,7 +13,7 @@ unsigned int TspSolver::getRandInt(int low, int high)
   return dist(gen1);
 }
 
-void TspSolver::solveRandomly(CityList& list, CityPath& marked)
+double TspSolver::solveRandomly(CityList& list, CityPath& marked)
 {
   CityPath unmarked;
   vector<int> temp;
@@ -69,6 +69,7 @@ void TspSolver::solveRandomly(CityList& list, CityPath& marked)
       bestDist = dist;
       finalVec = temp;
     }
+
   }
 
   marked.setConnections(finalVec);
@@ -81,6 +82,7 @@ void TspSolver::solveRandomly(CityList& list, CityPath& marked)
   }
   //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
+  return dist;
 }
 
 double TspSolver::solveGreedy(CityList& list, CityPath& marked)
@@ -153,7 +155,7 @@ double TspSolver::solveGreedy(CityList& list, CityPath& marked)
 
 }
 
-void TspSolver::solveMyWay(CityList& list, CityPath& marked)
+double TspSolver::solveMyWay(CityList& list, CityPath& marked)
 {
   // Connect cities in node order (ending with starting node)
 
@@ -171,5 +173,6 @@ void TspSolver::solveMyWay(CityList& list, CityPath& marked)
   }
   //cout << marked.getPath(marked.size() - 1) << endl;
   cout << "Total distance: " << dist << endl;
+  return dist;
 
 }
