@@ -22,7 +22,7 @@ using std::istringstream;
 
 int main(int argc, char** argv){
 // Main Window
-Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
+Fl_Double_Window* window = new Fl_Double_Window(810, 370, "TSPLIB Solver");
 
 // Drop Down Menu Bar Child 0
 { Fl_Menu_Bar* menuBar
@@ -37,36 +37,36 @@ Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
 
 // Greedy Button Child 1
 { Fl_Button* greedyButton
-        = new Fl_Button(55, 480, 180, 45, "Greedy");
+        = new Fl_Button(55, 280, 180, 45, "Greedy");
 greedyButton->callback(greedy);
 }
 
 // Random Button Child 2
 { Fl_Button* randomButton
-        = new Fl_Button(325, 480, 180, 45, "Random");
+        = new Fl_Button(325, 280, 180, 45, "Random");
 randomButton->callback(random);
 }
 
 // MyWay Button Child 3
 { Fl_Button* myWayButton
-        = new Fl_Button(585, 480, 180, 45, "MyWay");
+        = new Fl_Button(585, 280, 180, 45, "MyWay");
 myWayButton->callback(myWay);
 }
 
 // Import Button Child 4
 { Fl_Button* importButton
-        = new Fl_Button(280, 215, 280, 70, "Import TSLIB");
+        = new Fl_Button(280, 35, 280, 70, "Import TSLIB");
 importButton->callback(open);
 }
 
 // Total Distance Output Child 5
 { Fl_Output* distanceOutput
-        = new Fl_Output(330, 390, 175, 55, "Total Distance Traveled:");
+        = new Fl_Output(330, 190, 175, 55, "Total Distance Traveled:");
 }
 
 // File Selected Output Child 6
 { Fl_Output* fileOutput
-        = new Fl_Output(220, 310, 425, 35, "File Selected:");
+        = new Fl_Output(220, 135, 425, 35, "File Selected:");
 }
 
 
