@@ -61,7 +61,18 @@ void quit(Fl_Widget* w, void* data){
 }
 
 void help(Fl_Widget* w, void* data){
-  cout << "help\n";
+  Fl_Window* window = new Fl_Window(380, 150, "Help");
+    Fl_Box* box = new Fl_Box(35, 60, 300, 35,
+      "First import a TSP file you'd like to analyze.\n"
+      "Please note the TSP file must include nodes in\n"
+      "the format of \"Node # -> Longitutde -> Latitude\"\n"
+      "Nodes must be after \"NODE_COORD_SECTION\" and\n"
+      "before \"EOF\". Click which algorithm you'd like to\n"
+      "run on the TSP file. Some algorithms take some time.\n"
+      "Do not worry if there is a slight pause. You will then\n"
+      "be prompted if you want to save the SVG.");
+  window->show();
+  box->show();
 }
 
 void greedy(Fl_Widget* w, void* data){
@@ -236,7 +247,7 @@ void saveSVGMyWay(Fl_Widget* w, void* data){
     output->value(saveName.c_str());
     o->show();
     box->show();
-    
+
   Fl_Window *win = (Fl_Window*)data;
   win->hide();
 }
