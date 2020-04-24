@@ -32,6 +32,10 @@ void quitProgram(Fl_Widget* w, void* data);
 void greedy(Fl_Widget* w, void* data);
 void random(Fl_Widget* w, void* data);
 void myWay(Fl_Widget* w, void* data);
+void closeWindow(Fl_Widget* w, void* data);
+void saveSVGGreedy(Fl_Widget* w, void* data);
+void saveSVGRandom(Fl_Widget* w, void* data);
+void saveSVGMyWay(Fl_Widget* w, void* data);
 
 
 #endif

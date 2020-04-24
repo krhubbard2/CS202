@@ -7,6 +7,7 @@
 
 Fl_Input* fileChoice = nullptr;
 string userFile = "";
+int saveSVGInt = 0;
 
 void open(Fl_Widget* w, void* data){
   // Create the file chooser, and show it
@@ -76,6 +77,16 @@ void greedy(Fl_Widget* w, void* data){
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
     string distance = std::to_string(solve.solveGreedy(list, path));
     o->value(distance.c_str());
+    //Save SVG Prompt
+    Fl_Window* window = new Fl_Window(340, 150, "SVG");
+      Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Would you like to save SVG file?");
+      Fl_Button* yesButton = new Fl_Button(60, 100, 100, 25, "Yes");
+      yesButton->callback(saveSVGGreedy, (void*) window);
+      Fl_Button* noButton = new Fl_Button(180, 100, 100, 25, "No");
+      noButton->callback(closeWindow, (void*) window);
+      box->show();
+      window->show();
+
   }
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
@@ -94,11 +105,22 @@ void random(Fl_Widget* w, void* data){
     CityPath path;
     TspSolver solve;
 
-
+    // Display total distance
     Fl_Button* b = (Fl_Button*) w;
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
     string distance = std::to_string(solve.solveRandomly(list, path));
     o->value(distance.c_str());
+
+    //Save SVG Prompt
+    Fl_Window* window = new Fl_Window(340, 150, "SVG");
+      Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Would you like to save SVG file?");
+      Fl_Button* yesButton = new Fl_Button(60, 100, 100, 25, "Yes");
+      yesButton->callback(saveSVGRandom, (void*) window);
+      Fl_Button* noButton = new Fl_Button(180, 100, 100, 25, "No");
+      noButton->callback(closeWindow, (void*) window);
+      box->show();
+      window->show();
+
   }
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
@@ -122,6 +144,16 @@ void myWay(Fl_Widget* w, void* data){
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
     string distance = std::to_string(solve.solveMyWay(list, path));
     o->value(distance.c_str());
+
+    //Save SVG Prompt
+    Fl_Window* window = new Fl_Window(340, 150, "SVG");
+      Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Would you like to save SVG file?");
+      Fl_Button* yesButton = new Fl_Button(60, 100, 100, 25, "Yes");
+      yesButton->callback(saveSVGMyWay, (void*) window);
+      Fl_Button* noButton = new Fl_Button(180, 100, 100, 25, "No");
+      noButton->callback(closeWindow, (void*) window);
+      box->show();
+      window->show();
   }
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
@@ -129,4 +161,82 @@ void myWay(Fl_Widget* w, void* data){
     	box->show();
     	window->show();
   }
+}
+
+void closeWindow(Fl_Widget* w, void* data){
+  Fl_Window *win = (Fl_Window*)data;
+  win->hide();
+}
+
+void saveSVGGreedy(Fl_Widget* w, void* data){
+  string input = userFile;
+  CityNode node(0,0,0);
+  CityList list;
+  readTSP(input, node, list);
+  CityPath path;
+  TspSolver solve;
+  string distance = std::to_string(solve.solveGreedy(list, path));
+  string saveName = userFile;
+  saveName.erase(saveName.end()-4, saveName.end());
+  saveName += "Greedy.svg";
+  svgGraph(list, path, saveName);
+
+  Fl_Window* o = new Fl_Window(405, 195, "Saved");
+    Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
+    Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");
+    output->value(saveName.c_str());
+    o->show();
+    box->show();
+
+  Fl_Window *win = (Fl_Window*)data;
+  win->hide();
+}
+
+void saveSVGRandom(Fl_Widget* w, void* data){
+  string input = userFile;
+  CityNode node(0,0,0);
+  CityList list;
+  readTSP(input, node, list);
+  CityPath path;
+  TspSolver solve;
+  string distance = std::to_string(solve.solveRandomly(list, path));
+  string saveName = userFile;
+  saveName.erase(saveName.end()-4, saveName.end());
+  saveName += "Random.svg";
+  svgGraph(list, path, saveName);
+
+  Fl_Window* o = new Fl_Window(405, 195, "Saved");
+    Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
+    Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");
+    output->value(saveName.c_str());
+    o->show();
+    box->show();
+
+
+  Fl_Window *win = (Fl_Window*)data;
+  win->hide();
+}
+
+void saveSVGMyWay(Fl_Widget* w, void* data){
+  string input = userFile;
+  CityNode node(0,0,0);
+  CityList list;
+  readTSP(input, node, list);
+  CityPath path;
+  TspSolver solve;
+  string distance = std::to_string(solve.solveMyWay(list, path));
+  string saveName = userFile;
+  saveName.erase(saveName.end()-4, saveName.end());
+  saveName += "MyWay.svg";
+  svgGraph(list, path, saveName);
+
+  Fl_Window* o = new Fl_Window(405, 195, "Saved");
+    Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
+    Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");
+    output->value(saveName.c_str());
+    o->show();
+    box->show();
+    
+  Fl_Window *win = (Fl_Window*)data;
+  win->hide();
 }
