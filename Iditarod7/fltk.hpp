@@ -25,6 +25,8 @@ using std::istringstream;
 #include "svg.hpp"
 #include "tspsolver.hpp"
 
+//Please refer to "fltk.cpp" for information on functions below.
+
 void open(Fl_Widget* w, void* data);
 void quit(Fl_Widget* w, void* data);
 void help(Fl_Widget* w, void* data);

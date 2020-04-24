@@ -1,7 +1,7 @@
 // Kelby Hubbard
 // CS202
-// April 10, 2020
-// Iditarod Challenge #4
+// April 28, 2020
+// Iditarod Challenge #7
 
 #ifndef TSPSOLVER_HPP_
 #define TSPSOLVER_HPP_

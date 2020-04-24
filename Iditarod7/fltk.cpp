@@ -5,12 +5,13 @@
 
 #include "fltk.hpp"
 
+//Global variables for selected user file
 Fl_Input* fileChoice = nullptr;
 string userFile = "";
-int saveSVGInt = 0;
 
+//Function to select / import TSP files
 void open(Fl_Widget* w, void* data){
-  // Create the file chooser, and show it
+  // Create the file chooser, and show it (TSP filter applied)
   Fl_File_Chooser chooser(".",                        // directory
                           "*.tsp",                        // filter
                           Fl_File_Chooser::SINGLE,     // chooser type
@@ -33,10 +34,13 @@ void open(Fl_Widget* w, void* data){
   fprintf(stderr, "    VALUE: '%s'\n", chooser.value());
   fprintf(stderr, "    COUNT: %d files selected\n", chooser.count());
 
+  // Choice = selected value
   string choice = chooser.value();
   std::istringstream is(choice);
+  //Apply user choice to global variable userFile
   is >> userFile;
 
+  //Display user choice to output box "fileOutput" (child 6)
   Fl_Button* b = (Fl_Button*) w;
   Fl_Output * o = (Fl_Output*)b->parent()->child(6);
   o->value(userFile.c_str());
@@ -60,6 +64,7 @@ void quit(Fl_Widget* w, void* data){
   	window->show();
 }
 
+//Help function
 void help(Fl_Widget* w, void* data){
   Fl_Window* window = new Fl_Window(380, 150, "Help");
     Fl_Box* box = new Fl_Box(35, 60, 300, 35,
@@ -75,19 +80,25 @@ void help(Fl_Widget* w, void* data){
   box->show();
 }
 
+//Runs greedy algoirthm on selected TSP file
 void greedy(Fl_Widget* w, void* data){
   string input = userFile;
   if (input != ""){
+    //Member variables needed
     CityNode node(0,0,0);
     CityList list;
     readTSP(input, node, list);
     CityPath path;
     TspSolver solve;
 
+    //Run solveGreedy and save distance value to distance
+    string distance = std::to_string(solve.solveGreedy(list, path));
+
+    //Display total distance to distanceOutput (child 5)
     Fl_Button* b = (Fl_Button*) w;
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
-    string distance = std::to_string(solve.solveGreedy(list, path));
     o->value(distance.c_str());
+
     //Save SVG Prompt
     Fl_Window* window = new Fl_Window(340, 150, "SVG");
       Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Would you like to save SVG file?");
@@ -97,8 +108,9 @@ void greedy(Fl_Widget* w, void* data){
       noButton->callback(closeWindow, (void*) window);
       box->show();
       window->show();
-
   }
+
+  //Error if user didn't import file first.
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
     	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "You must first import a file.");
@@ -107,19 +119,23 @@ void greedy(Fl_Widget* w, void* data){
   }
 }
 
+//Runs random algoirthm on selected TSP file
 void random(Fl_Widget* w, void* data){
   string input = userFile;
   if (input != ""){
+    //Member variables needed
     CityNode node(0,0,0);
     CityList list;
     readTSP(input, node, list);
     CityPath path;
     TspSolver solve;
 
-    // Display total distance
+    //Run solveRandomly and save distance value to distance
+    string distance = std::to_string(solve.solveRandomly(list, path));
+
+    //Display total distance to distanceOutput (child 5)
     Fl_Button* b = (Fl_Button*) w;
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
-    string distance = std::to_string(solve.solveRandomly(list, path));
     o->value(distance.c_str());
 
     //Save SVG Prompt
@@ -133,6 +149,7 @@ void random(Fl_Widget* w, void* data){
       window->show();
 
   }
+  //Error if user didn't import file first.
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
     	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "You must first import a file.");
@@ -141,19 +158,23 @@ void random(Fl_Widget* w, void* data){
   }
 }
 
+//Runs myWay algoirthm on selected TSP file
 void myWay(Fl_Widget* w, void* data){
   string input = userFile;
   if (input != ""){
+    //Member variables needed
     CityNode node(0,0,0);
     CityList list;
     readTSP(input, node, list);
     CityPath path;
     TspSolver solve;
 
+    //Run solveMyWay and save distance value to distance
+    string distance = std::to_string(solve.solveMyWay(list, path));
 
+    //Display total distance to distanceOutput (child 5)
     Fl_Button* b = (Fl_Button*) w;
     Fl_Output * o = (Fl_Output*)b->parent()->child(5);
-    string distance = std::to_string(solve.solveMyWay(list, path));
     o->value(distance.c_str());
 
     //Save SVG Prompt
@@ -166,6 +187,7 @@ void myWay(Fl_Widget* w, void* data){
       box->show();
       window->show();
   }
+  //Error if user didn't import file first.
   else{
     Fl_Window* window = new Fl_Window(340, 150, "Error!");
     	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "You must first import a file.");
@@ -174,24 +196,37 @@ void myWay(Fl_Widget* w, void* data){
   }
 }
 
+//Closes current window
 void closeWindow(Fl_Widget* w, void* data){
   Fl_Window *win = (Fl_Window*)data;
   win->hide();
 }
 
+//Saves SVG file for Greedy Algorithm
 void saveSVGGreedy(Fl_Widget* w, void* data){
+  //Grab imported file
+
   string input = userFile;
+
+  //Member variables needed
   CityNode node(0,0,0);
   CityList list;
   readTSP(input, node, list);
   CityPath path;
   TspSolver solve;
+
+  //Solve with Greedy Algorith
   string distance = std::to_string(solve.solveGreedy(list, path));
+
+  //Create savefile name based off of imported TSP file name
   string saveName = userFile;
   saveName.erase(saveName.end()-4, saveName.end());
   saveName += "Greedy.svg";
+
+  //Produce and save SVG Graph
   svgGraph(list, path, saveName);
 
+  //Tell user file was saved and give user file name and location
   Fl_Window* o = new Fl_Window(405, 195, "Saved");
     Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
     Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");
@@ -203,19 +238,31 @@ void saveSVGGreedy(Fl_Widget* w, void* data){
   win->hide();
 }
 
+//Saves SVG file for Random Algorithm
 void saveSVGRandom(Fl_Widget* w, void* data){
+  //Grab imported file
+
   string input = userFile;
+
+  //Member variables needed
   CityNode node(0,0,0);
   CityList list;
   readTSP(input, node, list);
   CityPath path;
   TspSolver solve;
+
+  //Solve with Randomly Algorith
   string distance = std::to_string(solve.solveRandomly(list, path));
+
+  //Create savefile name based off of imported TSP file name
   string saveName = userFile;
   saveName.erase(saveName.end()-4, saveName.end());
   saveName += "Random.svg";
+
+  //Produce and save SVG Graph
   svgGraph(list, path, saveName);
 
+  //Tell user file was saved and give user file name and location
   Fl_Window* o = new Fl_Window(405, 195, "Saved");
     Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
     Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");
@@ -228,19 +275,31 @@ void saveSVGRandom(Fl_Widget* w, void* data){
   win->hide();
 }
 
+//Saves SVG file for MyWay Algorithm
 void saveSVGMyWay(Fl_Widget* w, void* data){
+  //Grab imported file
+
   string input = userFile;
+
+  //Member variables needed
   CityNode node(0,0,0);
   CityList list;
   readTSP(input, node, list);
   CityPath path;
   TspSolver solve;
+
+  //Solve with MyWay Algorith
   string distance = std::to_string(solve.solveMyWay(list, path));
+
+  //Create savefile name based off of imported TSP file name
   string saveName = userFile;
   saveName.erase(saveName.end()-4, saveName.end());
   saveName += "MyWay.svg";
+
+  //Produce and save SVG Graph
   svgGraph(list, path, saveName);
 
+  //Tell user file was saved and give user file name and location
   Fl_Window* o = new Fl_Window(405, 195, "Saved");
     Fl_Box* box = new Fl_Box(40, 15, 315, 95, "File saved.");
     Fl_Output* output = new Fl_Output(100, 100, 265, 60, "File Name:");

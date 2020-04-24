@@ -20,10 +20,6 @@ using std::istringstream;
 #include "fltk.hpp"
 
 
-void newline(){
-  cout << "--------------------------------\n";
-}
-
 int main(int argc, char** argv){
 // Main Window
 Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
@@ -75,27 +71,10 @@ importButton->callback(open);
 
 
 
+//Show main FLTK window
 window->end();
 window->resizable();
 window->show(argc, argv);
 
 return (Fl::run());
-
-  // CityNode node0(0, 0, 0);
-  // TspSolver solve;
-  // CityList fnl;
-  // //Make CityList for FNL4461
-  // cout << "CITY: FNL4461\n";
-  // CityList fnl;
-  // readTSP("fnl4461.tsp", node0, fnl);
-  // CityPath svgfnl;
-  // solve.solveGreedy(fnl, svgfnl);
-  // cout << "Generating Greedy SVG Output\n";
-  // svgGraph(fnl, svgfnl, "fnl14461GreedyOutput.svg");
-  // solve.solveRandomly(fnl, svgfnl);
-  // cout << "Generating Randomly SVG Output\n";
-  // svgGraph(fnl, svgfnl, "fnl14461RandomlyOutput.svg");
-  // solve.solveMyWay(fnl, svgfnl);
-  // cout << "Generating MyWay SVG Output\n";
-  // svgGraph(fnl, svgfnl, "fnl14461MyWayOutput.svg");
 }
