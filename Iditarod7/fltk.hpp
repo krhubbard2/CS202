@@ -19,6 +19,7 @@ using std::endl;
 void open(Fl_Widget* w, void* data);
 void quit(Fl_Widget* w, void* data);
 void help(Fl_Widget* w, void* data);
+void quitProgram(Fl_Widget* w, void* data);
 
 
 

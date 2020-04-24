@@ -116,6 +116,11 @@ void newline(){
 }
 
 int main(int argc, char** argv){
+//General Class declerations needed
+CityNode node0(0, 0, 0);
+TspSolver solve;
+CityList list;
+
 
 // Main Window
 Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
@@ -149,6 +154,7 @@ Fl_Double_Window* window = new Fl_Double_Window(810, 570, "TSPLIB Solver");
 // Import Button
 { Fl_Button* importButton
         = new Fl_Button(280, 215, 280, 70, "Import TSLIB");
+importButton->callback(open);
 }
 
 // TotalDistance Output
@@ -166,6 +172,7 @@ return (Fl::run());
 
   // CityNode node0(0, 0, 0);
   // TspSolver solve;
+  // CityList fnl;
   // //Make CityList for FNL4461
   // cout << "CITY: FNL4461\n";
   // CityList fnl;

@@ -37,8 +37,21 @@ void open(Fl_Widget* w, void* data){
   }
 }
 
+//Exits program
+void quitProgram(Fl_Widget* w, void* data)
+{
+	exit(0);
+}
+
+//Quit function for menu dropdown bar
 void quit(Fl_Widget* w, void* data){
-  cout << "quit\n";
+  Fl_Window* window = new Fl_Window(340, 150, "Quit");
+  	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "Are you sure you want to quit?");
+  	Fl_Button* yesButton = new Fl_Button(120, 100, 100, 25, "Yes I\'m sure.");
+  	yesButton->callback(quitProgram);
+
+  	box->show();
+  	window->show();
 }
 
 void help(Fl_Widget* w, void* data){
