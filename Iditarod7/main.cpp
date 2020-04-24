@@ -54,6 +54,7 @@ randomButton->callback(random);
 // MyWay Button Child 3
 { Fl_Button* myWayButton
         = new Fl_Button(585, 480, 180, 45, "MyWay");
+myWayButton->callback(myWay);
 }
 
 // Import Button Child 4

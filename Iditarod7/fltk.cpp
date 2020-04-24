@@ -107,3 +107,26 @@ void random(Fl_Widget* w, void* data){
     	window->show();
   }
 }
+
+void myWay(Fl_Widget* w, void* data){
+  string input = userFile;
+  if (input != ""){
+    CityNode node(0,0,0);
+    CityList list;
+    readTSP(input, node, list);
+    CityPath path;
+    TspSolver solve;
+
+
+    Fl_Button* b = (Fl_Button*) w;
+    Fl_Output * o = (Fl_Output*)b->parent()->child(5);
+    string distance = std::to_string(solve.solveMyWay(list, path));
+    o->value(distance.c_str());
+  }
+  else{
+    Fl_Window* window = new Fl_Window(340, 150, "Error!");
+    	Fl_Box* box = new Fl_Box(20, 40, 300, 35, "You must first import a file.");
+    	box->show();
+    	window->show();
+  }
+}
